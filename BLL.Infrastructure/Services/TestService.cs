@@ -46,8 +46,13 @@ namespace BLL.Infrastructure.Services
         public async Task<TestDTO> CreateTest(TestDTO testDTO)
         {
             var test = Mapper.Map<TestDTO, Test>(testDTO);
+            var teacher = await UnitOfWork.Teacher.GetByIdAsync(test.OwnerId);
+            if(teacher == null)
+            {
+                throw new Exception("Foreign key is not right");
+            }
             await UnitOfWork.Test.CreateAsync(test);
-
+           
             return testDTO;
         }
     }

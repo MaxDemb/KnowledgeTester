@@ -13,7 +13,7 @@ namespace BLL.DTO
         public DateTime Deadline { get; set; }
         public bool IsOpen { get; set; }
 
-        //public int OwnerId { get; set; }
+        public int OwnerId { get; set; }
         //public Teacher Owner { get; set; }
 
 
