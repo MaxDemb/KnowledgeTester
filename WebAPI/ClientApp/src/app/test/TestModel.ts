@@ -1,7 +1,7 @@
 export interface TestModel{
     name:string
-    creationDate:Date
     openedDate:Date
+    creationDate:Date
     deadline:Date
     ownerId:number
     isOpen:boolean

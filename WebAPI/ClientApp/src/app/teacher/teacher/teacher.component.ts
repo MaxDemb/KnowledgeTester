@@ -3,7 +3,7 @@ import { Teacher } from './teacher';
 import { TeacherService } from '../teacher.service';
 import { filter } from 'rxjs/operators';
 import { Observable } from 'rxjs';
-import { TestNode } from 'src/app/test/test-for-student/TestNode';
+import { TestNode } from '../../test/TestNode';
 
 @Component({
   selector: 'app-teacher',

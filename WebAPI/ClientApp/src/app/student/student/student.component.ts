@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { StudentServiceService } from '../student-service.service';
 import { Observable, TeardownLogic } from 'rxjs';
 import { Student } from './students';
-import { Teacher } from 'src/app/teacher/teacher/teacher';
-import { TestNode } from 'src/app/test/test-for-student/TestNode';
+import { Teacher } from '../../teacher/teacher/teacher';
+import { TestNode } from '../../test/TestNode';
 
 @Component({
   selector: 'app-student',

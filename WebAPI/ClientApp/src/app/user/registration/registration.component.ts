@@ -18,18 +18,19 @@ export class RegistrationComponent implements OnInit {
   email: string;
   password: string;
   user : UserModel;
-  
+  user2: any;
 
   submit(){
     this.user =  {     
-      Login : this.name,
+      UserName : this.name,
       Email : this.email,
       Password : this.password
     };
     // this.user.Login = this.name;
     // this.user.Email = this.email;
     // this.user.Password = this.password;
-    this.userService.RegistrateUser(this.user);
+    this.userService.RegistrateUser(this.user).subscribe(res => this.user2 = res);
+    console.log(this.user2);
     console.log("success");
   }
 }

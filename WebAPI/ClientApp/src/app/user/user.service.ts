@@ -12,8 +12,6 @@ export class UserService {
 
 
   RegistrateUser(model:UserModel){
-    console.log(model);
-    this.http.post<UserModel>(this.baseUrl + 'api/user/register', model);
-    console.log(this.baseUrl + 'api/user/register');
+    return this.http.post(this.baseUrl + 'api/user/register', model);
   }
 }

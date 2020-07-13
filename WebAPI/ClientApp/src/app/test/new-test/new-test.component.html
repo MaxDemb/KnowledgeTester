@@ -3,19 +3,62 @@
 
 <form #myForm="ngForm" novalidate>
     <div class="form-group">
-        <label>Имя</label>
+        <label>Test name:</label>
         <input class="form-control" name="name" [(ngModel)]="name" required />
     </div>
-    <div class="form-group">
-        <label>Email</label>
-        <input class="form-control" name="email" [(ngModel)]="email"
-                required email />
+    <br>
+
+
+    <div class="date-container">
+        <div class="date-group">
+            <label>Open date</label>
+            <div class="date-group-forms">
+                <div class="form-group">
+                    <label>Year:</label>
+                    <input class="form-control" name="year_open" [(ngModel)]="year_open"
+                            required/>
+                </div>
+                <div class="form-group">
+                    <label>Month:</label>
+                    <input class="form-control" name="month_open" [(ngModel)]="month_open"
+                            required/>
+                </div>
+                <div class="form-group">
+                    <label>Day</label>
+                    <input class="form-control" name="day_open" [(ngModel)]="day_open"
+                            required/>
+                </div>
+            </div>
+        </div>
+        <div class="date-group">
+            <label>Close date</label>
+            <div class="date-group-forms">
+                <div class="form-group">
+                    <label>Year:</label>
+                    <input class="form-control" name="year_closed" [(ngModel)]="year_closed"
+                            required/>
+                </div>
+                <div class="form-group">
+                    <label>Month:</label>
+                    <input class="form-control" name="month_closed" [(ngModel)]="month_closed"
+                            required/>
+                </div>
+                <div class="form-group">
+                    <label>Day</label>
+                    <input class="form-control" name="day_closed" [(ngModel)]="day_closed"
+                            required/>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="form-group">
-        <label>password</label>
-        <input class="form-control" type="password" name="password"  [(ngModel)]="password" 
-            required/>
-    </div>
+  
+
+
+
+
+
+
+    
     <div class="form-group">
         <button [disabled]="myForm.invalid"
                 class="btn btn-default" (click)="submit()">Добавить</button>
