@@ -15,7 +15,7 @@ namespace DAL.EF.Context
         }
 
         public DbSet<ApplicationUser> ApplicationUsers { get; set; }
-       // public DbSet<Student> Students { get; set; }
+        public DbSet<StudentRole> Students { get; set; }
     }
 
 

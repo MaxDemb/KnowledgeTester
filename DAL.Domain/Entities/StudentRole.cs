@@ -5,8 +5,8 @@ using System.Text;
 
 namespace DAL.Domain.Entities
 {
-    public class AnswerVariant:BaseEntity
+    public class StudentRole: BaseEntity
     {
-        public bool Right { get; set; }
+        public string UserId { get; set; }
     }
 }
