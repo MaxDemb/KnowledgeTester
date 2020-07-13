@@ -27,7 +27,7 @@ namespace WebAPI.Controllers
             [HttpPost]
             [Route("Register")]
             //api/user/register
-            public async Task<Object> PostUser(UserModel model)
+            public async Task<ActionResult<UserModel>> PostUser(UserModel model)
             {
                 var applicationUser = new ApplicationUser()
                 {

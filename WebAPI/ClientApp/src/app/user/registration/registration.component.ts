@@ -29,7 +29,7 @@ export class RegistrationComponent implements OnInit {
     // this.user.Login = this.name;
     // this.user.Email = this.email;
     // this.user.Password = this.password;
-   this.userService.RegistrateUser(this.user);
+    this.userService.RegistrateUser(this.user);
+    console.log("success");
   }
-Z
 }

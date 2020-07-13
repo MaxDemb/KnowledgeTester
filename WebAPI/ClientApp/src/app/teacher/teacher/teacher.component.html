@@ -10,6 +10,17 @@
 
 
 <div>
+    <a [routerLink]="['/newtest', 1]">
+        <button class="btn btn-success">
+            New Test
+        </button>
+    </a>
+</div>
+<br>
+
+
+
+<div>
     <button type="button" [hidden] = "isStudents" class="btn btn-success" (click)="showStudents()">Show students</button>
     <button type="button" [hidden] = "!isStudents" class="btn btn-warning" (click)="showStudents()">Hide students</button>
 

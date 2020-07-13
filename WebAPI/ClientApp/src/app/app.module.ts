@@ -19,6 +19,7 @@ import { TestTeacherComponent } from './test/test-teacher/test-teacher.component
 import { RegistrationComponent} from './user/registration/registration.component';
 import { UserComponent} from './user/user.component';
 import { NgForm} from '@angular/forms';
+import { NewTestComponent} from './test/new-test/new-test.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { NgForm} from '@angular/forms';
     UserComponent,
     RegistrationComponent,
     TestComponent,
+    NewTestComponent,
     TestTeacherComponent
   ],
   imports: [
@@ -48,8 +50,9 @@ import { NgForm} from '@angular/forms';
         //{ path: 'tests-by-teacher', component: TestsByTeacherComponent},
         //{ path: 'tests-by-teacher-node', component: TestsByTeacherNodeComponent},
         { path: 'student', component: StudentComponent},
-        { path: 'test/:id/:studentId', component: TestComponent},
-        { path: 'test/:id', component: TestTeacherComponent}
+        { path: 'test/:id/student/:studentId', component: TestComponent},
+        { path: 'test/:id/teacher/:teacherId/', component: TestTeacherComponent},
+        { path: 'newtest/:teacherId', component: NewTestComponent}
     ])
   ],
   providers: [

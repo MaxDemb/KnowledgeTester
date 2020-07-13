@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute} from '@angular/router';
-import { TestNode } from './TestNode';
+import { TestNode } from '../TestNode';
 import { Observable } from 'rxjs';
 import { TestService } from '../test.service';
 

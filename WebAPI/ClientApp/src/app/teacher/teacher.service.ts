@@ -2,7 +2,7 @@ import { Injectable, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Teacher } from './teacher/teacher';
 import { StudentByTeacher } from './students-by-teacher/student-node/StudentByTeacher';
-import { TestNode } from '../test/test-for-student/TestNode';
+import { TestNode } from '../test/TestNode';
 
 @Injectable({
   providedIn: 'root'
