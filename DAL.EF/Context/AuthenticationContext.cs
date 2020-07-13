@@ -15,12 +15,8 @@ namespace DAL.EF.Context
         }
 
         public DbSet<ApplicationUser> ApplicationUsers { get; set; }
-       // public DbSet<Shit> Shits { get; set; }
+       // public DbSet<Student> Students { get; set; }
     }
 
-    public class Shit
-    {
-        public int Id { get; set; }
-        public string Name { get; set; }
-    }
+
 }

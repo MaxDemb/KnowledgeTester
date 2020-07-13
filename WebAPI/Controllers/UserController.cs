@@ -30,23 +30,26 @@ namespace WebAPI.Controllers
         //api/user/register
         public async Task<ActionResult<UserModel>> PostUser(UserModel model)
         {
+            model.Role = "Student";
             var applicationUser = new ApplicationUser()
             {
                 UserName = model.UserName,
                 Email = model.Email
-};
+            };
 
-                try
-                {
-                    var result = await _userManager.CreateAsync(applicationUser, model.Password);
-                    return Ok(result);
-                }
-                catch (Exception ex)
-                {
 
-                    throw ex;
-                }
+
+            try
+            {
+                var result = await _userManager.CreateAsync(applicationUser, model.Password);
+                await _userManager.AddToRoleAsync(applicationUser, model.Role);
+                return Ok(result);
             }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 
             //[HttpPost]
             //[Route("Login")]
@@ -55,6 +58,7 @@ namespace WebAPI.Controllers
             //    var result = await _signInManager.PasswordSignInAsync(model.Email,
             //              model.Password, model.RememberMe, lockoutOnFailure: true);
             //}
+
             public ActionResult<string> Get()
             {
                 return Ok("yes");
