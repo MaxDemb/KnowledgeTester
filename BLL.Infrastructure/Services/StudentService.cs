@@ -31,5 +31,12 @@ namespace BLL.Infrastructure.Services
             
             return Mapper.Map<Student, StudentDTO>(res);
         }
+
+
+        public async Task AddStudent(StudentDTO student)
+        {
+            var studentMapped = Mapper.Map<StudentDTO, StudentRole>(student);
+            await UnitOfWork.StudentRole.CreateAsync(studentMapped);
+        }
     }
 }

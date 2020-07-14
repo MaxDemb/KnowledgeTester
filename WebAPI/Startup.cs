@@ -70,6 +70,8 @@ namespace WebAPI
                 mc.AddProfile(new AutomapperStudentProfile());
                 mc.AddProfile(new AutomapperTestProfile());
                 mc.AddProfile(new AutomapperAnswerVariantProfile());
+                mc.AddProfile(new AutomapperStudentRoleProfile());
+
             });
 
             IMapper mapper = mappingConfig.CreateMapper();
@@ -83,7 +85,7 @@ namespace WebAPI
             services.AddTransient<IResultService, ResultService>();
             services.AddTransient<IAnswerVariantService, AnswerVariantService>();
             services.AddTransient<IUnitOfWork, UnitOfWork>();
-            services.AddTransient<ApiAuthorizationDbContext<ApplicationUser>, AppDbContext>();
+            services.AddTransient<DbContext, AppDbContext>();
 
             services.AddControllers().AddNewtonsoftJson();
 

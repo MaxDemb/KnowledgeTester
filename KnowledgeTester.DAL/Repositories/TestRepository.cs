@@ -9,7 +9,7 @@ namespace DAL.EntityFramework.Repositories
 {
     public class TestRepository : GenericRepository<Test>, ITestRepository
     {
-        public TestRepository(ApiAuthorizationDbContext<ApplicationUser> context) : base(context)
+        public TestRepository(DbContext context) : base(context)
         {
         }
 

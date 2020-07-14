@@ -55,8 +55,8 @@ namespace KnowledgeTester
             services.AddSingleton(mapper);
 
 
-            services.AddIdentityServer()
-                .AddApiAuthorization<ApplicationUser, AppDbContext>();
+            //services.AddIdentityServer()
+            //    .AddApiAuthorization<ApplicationUser, AppDbContext>();
 
             services.AddTransient<ITeacherService, TeacherService>();
             services.AddTransient<IStudentService, StudentService>();
@@ -72,7 +72,7 @@ namespace KnowledgeTester
             //services.AddTransient<IQuestionRepository, QuestionRepository>();
 
 
-            services.AddTransient<ApiAuthorizationDbContext<ApplicationUser>,AppDbContext>();
+            services.AddTransient<DbContext,AppDbContext>();
             services.AddTransient<IUnitOfWork, UnitOfWork>();
 
             // services.AddTransient<ITeacherService, TeacherService>();

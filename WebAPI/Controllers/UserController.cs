@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using BLL.DTO;
+using BLL.Interfaces;
 using DAL.Domain.Entities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
@@ -18,11 +20,16 @@ namespace WebAPI.Controllers
        
         private UserManager<ApplicationUser> _userManager;
         private SignInManager<ApplicationUser> _signInManager;
-        
-        public UserController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager)
+        private readonly IStudentService _studentService;
+        private readonly ITeacherService _teacherService;
+
+        public UserController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager,
+            IStudentService studentService, ITeacherService teacherService)
         {
             _userManager = userManager;
             _signInManager = signInManager;
+            _studentService = studentService;
+            _teacherService = teacherService;
         }
 
         [HttpPost]
@@ -32,6 +39,11 @@ namespace WebAPI.Controllers
         {
             if (model.Role == "Student")
             {
+                var student = new StudentDTO
+                {
+                    Name = model.UserName,
+                };
+                await _studentService.AddStudent(student);
             }
             else if(model.Role == "Teacher")
             {

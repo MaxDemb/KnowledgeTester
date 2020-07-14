@@ -8,6 +8,7 @@ namespace DAL.Interfaces
     {
         IQuestionRepository Question { get; }
         IResultRepository Result { get; }
+        IStudentRoleRepository StudentRole { get; }
         IStudentRepository Student { get; }
         ITeacherRepository Teacher { get; }
         ITestRepository Test { get; }

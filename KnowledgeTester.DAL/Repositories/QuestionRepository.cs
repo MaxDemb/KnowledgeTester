@@ -9,7 +9,7 @@ namespace DAL.EntityFramework.Repositories
 {
     public class QuestionRepository : GenericRepository<Question>, IQuestionRepository
     {
-        public QuestionRepository(ApiAuthorizationDbContext<ApplicationUser> context) : base(context)
+        public QuestionRepository(DbContext context) : base(context)
         {
         }
 

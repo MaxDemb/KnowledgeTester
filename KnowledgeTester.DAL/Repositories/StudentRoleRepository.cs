@@ -10,13 +10,13 @@ using System.Text;
 
 namespace DAL.EntityFramework.Repositories
 {
-    class AnswerVariantRepository: GenericRepository<AnswerVariant>, IAnswerVariantRepository
+    public class StudentRoleRepository : GenericRepository<StudentRole>, IStudentRoleRepository
     {
-        public AnswerVariantRepository(DbContext context) : base(context)
+        public StudentRoleRepository(DbContext context) : base(context)
         {
         }
 
-        protected override IQueryable<AnswerVariant> DbSetWithAllProperties()
+        protected override IQueryable<StudentRole> DbSetWithAllProperties()
         {
             return DbSet;
         }

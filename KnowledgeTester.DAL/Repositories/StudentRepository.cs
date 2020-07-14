@@ -9,7 +9,7 @@ namespace DAL.EntityFramework.Repositories
 {
     public class StudentRepository : GenericRepository<Student>, IStudentRepository
     {
-        public StudentRepository(ApiAuthorizationDbContext<ApplicationUser> context) : base(context)
+        public StudentRepository(DbContext context) : base(context)
         {
         }
 

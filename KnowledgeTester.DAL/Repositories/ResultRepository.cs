@@ -12,7 +12,7 @@ namespace DAL.EntityFramework.Repositories
 {
     public class ResultRepository : GenericRepository<Result>, IResultRepository
     {
-        public ResultRepository(ApiAuthorizationDbContext<ApplicationUser> context) : base(context)
+        public ResultRepository(DbContext context) : base(context)
         {
         }
 

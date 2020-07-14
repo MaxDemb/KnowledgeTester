@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DAL.EntityFramework.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20200622110246_Add required name")]
-    partial class Addrequiredname
+    [Migration("20200714095044_Initial Create")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -43,71 +43,6 @@ namespace DAL.EntityFramework.Migrations
                     b.HasIndex("QuestionId");
 
                     b.ToTable("AnswerVariants");
-                });
-
-            modelBuilder.Entity("DAL.Domain.Entities.ApplicationUser", b =>
-                {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<int>("AccessFailedCount")
-                        .HasColumnType("int");
-
-                    b.Property<string>("ConcurrencyStamp")
-                        .IsConcurrencyToken()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Email")
-                        .HasColumnType("nvarchar(256)")
-                        .HasMaxLength(256);
-
-                    b.Property<bool>("EmailConfirmed")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("LockoutEnabled")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTimeOffset?>("LockoutEnd")
-                        .HasColumnType("datetimeoffset");
-
-                    b.Property<string>("NormalizedEmail")
-                        .HasColumnType("nvarchar(256)")
-                        .HasMaxLength(256);
-
-                    b.Property<string>("NormalizedUserName")
-                        .HasColumnType("nvarchar(256)")
-                        .HasMaxLength(256);
-
-                    b.Property<string>("PasswordHash")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PhoneNumber")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("PhoneNumberConfirmed")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("SecurityStamp")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("TwoFactorEnabled")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("UserName")
-                        .HasColumnType("nvarchar(256)")
-                        .HasMaxLength(256);
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("NormalizedEmail")
-                        .HasName("EmailIndex");
-
-                    b.HasIndex("NormalizedUserName")
-                        .IsUnique()
-                        .HasName("UserNameIndex")
-                        .HasFilter("[NormalizedUserName] IS NOT NULL");
-
-                    b.ToTable("AspNetUsers");
                 });
 
             modelBuilder.Entity("DAL.Domain.Entities.Question", b =>
@@ -214,7 +149,7 @@ namespace DAL.EntityFramework.Migrations
                             Age = 18,
                             IsActive = true,
                             Name = "Max Dembitsky",
-                            RegistrationDate = new DateTime(2020, 6, 22, 14, 2, 46, 152, DateTimeKind.Local).AddTicks(8393),
+                            RegistrationDate = new DateTime(2020, 7, 14, 12, 50, 43, 903, DateTimeKind.Local).AddTicks(3542),
                             TeacherId = 1
                         },
                         new
@@ -223,7 +158,7 @@ namespace DAL.EntityFramework.Migrations
                             Age = 16,
                             IsActive = true,
                             Name = "Ivan Gal",
-                            RegistrationDate = new DateTime(2020, 6, 22, 14, 2, 46, 152, DateTimeKind.Local).AddTicks(9476),
+                            RegistrationDate = new DateTime(2020, 7, 14, 12, 50, 43, 903, DateTimeKind.Local).AddTicks(5934),
                             TeacherId = 1
                         },
                         new
@@ -232,7 +167,7 @@ namespace DAL.EntityFramework.Migrations
                             Age = 26,
                             IsActive = true,
                             Name = "Mike Vazovsky",
-                            RegistrationDate = new DateTime(2020, 6, 22, 14, 2, 46, 152, DateTimeKind.Local).AddTicks(9508),
+                            RegistrationDate = new DateTime(2020, 7, 14, 12, 50, 43, 903, DateTimeKind.Local).AddTicks(5990),
                             TeacherId = 1
                         },
                         new
@@ -241,7 +176,7 @@ namespace DAL.EntityFramework.Migrations
                             Age = 23,
                             IsActive = true,
                             Name = "Keis Lokie",
-                            RegistrationDate = new DateTime(2020, 6, 22, 14, 2, 46, 152, DateTimeKind.Local).AddTicks(9512),
+                            RegistrationDate = new DateTime(2020, 7, 14, 12, 50, 43, 903, DateTimeKind.Local).AddTicks(6000),
                             TeacherId = 1
                         },
                         new
@@ -250,7 +185,7 @@ namespace DAL.EntityFramework.Migrations
                             Age = 15,
                             IsActive = true,
                             Name = "Petro",
-                            RegistrationDate = new DateTime(2020, 6, 22, 14, 2, 46, 152, DateTimeKind.Local).AddTicks(9516),
+                            RegistrationDate = new DateTime(2020, 7, 14, 12, 50, 43, 903, DateTimeKind.Local).AddTicks(6013),
                             TeacherId = 2
                         },
                         new
@@ -259,7 +194,7 @@ namespace DAL.EntityFramework.Migrations
                             Age = 29,
                             IsActive = true,
                             Name = "Olga",
-                            RegistrationDate = new DateTime(2020, 6, 22, 14, 2, 46, 152, DateTimeKind.Local).AddTicks(9520),
+                            RegistrationDate = new DateTime(2020, 7, 14, 12, 50, 43, 903, DateTimeKind.Local).AddTicks(6023),
                             TeacherId = 2
                         },
                         new
@@ -268,7 +203,7 @@ namespace DAL.EntityFramework.Migrations
                             Age = 29,
                             IsActive = false,
                             Name = "Svitlana",
-                            RegistrationDate = new DateTime(2020, 6, 22, 14, 2, 46, 152, DateTimeKind.Local).AddTicks(9524),
+                            RegistrationDate = new DateTime(2020, 7, 14, 12, 50, 43, 903, DateTimeKind.Local).AddTicks(6037),
                             TeacherId = 2
                         },
                         new
@@ -277,7 +212,7 @@ namespace DAL.EntityFramework.Migrations
                             Age = 56,
                             IsActive = true,
                             Name = "Murko",
-                            RegistrationDate = new DateTime(2020, 6, 22, 14, 2, 46, 152, DateTimeKind.Local).AddTicks(9527),
+                            RegistrationDate = new DateTime(2020, 7, 14, 12, 50, 43, 903, DateTimeKind.Local).AddTicks(6046),
                             TeacherId = 3
                         },
                         new
@@ -286,7 +221,7 @@ namespace DAL.EntityFramework.Migrations
                             Age = 21,
                             IsActive = true,
                             Name = "Taras",
-                            RegistrationDate = new DateTime(2020, 6, 22, 14, 2, 46, 152, DateTimeKind.Local).AddTicks(9531),
+                            RegistrationDate = new DateTime(2020, 7, 14, 12, 50, 43, 903, DateTimeKind.Local).AddTicks(6061),
                             TeacherId = 3
                         },
                         new
@@ -295,7 +230,7 @@ namespace DAL.EntityFramework.Migrations
                             Age = 62,
                             IsActive = true,
                             Name = "Sofia",
-                            RegistrationDate = new DateTime(2020, 6, 22, 14, 2, 46, 152, DateTimeKind.Local).AddTicks(9535),
+                            RegistrationDate = new DateTime(2020, 7, 14, 12, 50, 43, 903, DateTimeKind.Local).AddTicks(6076),
                             TeacherId = 4
                         },
                         new
@@ -304,7 +239,7 @@ namespace DAL.EntityFramework.Migrations
                             Age = 15,
                             IsActive = true,
                             Name = "Kate",
-                            RegistrationDate = new DateTime(2020, 6, 22, 14, 2, 46, 152, DateTimeKind.Local).AddTicks(9539),
+                            RegistrationDate = new DateTime(2020, 7, 14, 12, 50, 43, 903, DateTimeKind.Local).AddTicks(6092),
                             TeacherId = 4
                         },
                         new
@@ -313,7 +248,7 @@ namespace DAL.EntityFramework.Migrations
                             Age = 56,
                             IsActive = false,
                             Name = "Max Term",
-                            RegistrationDate = new DateTime(2020, 6, 22, 14, 2, 46, 152, DateTimeKind.Local).AddTicks(9542),
+                            RegistrationDate = new DateTime(2020, 7, 14, 12, 50, 43, 903, DateTimeKind.Local).AddTicks(6104),
                             TeacherId = 5
                         },
                         new
@@ -322,7 +257,7 @@ namespace DAL.EntityFramework.Migrations
                             Age = 43,
                             IsActive = true,
                             Name = "Interrest",
-                            RegistrationDate = new DateTime(2020, 6, 22, 14, 2, 46, 152, DateTimeKind.Local).AddTicks(9546),
+                            RegistrationDate = new DateTime(2020, 7, 14, 12, 50, 43, 903, DateTimeKind.Local).AddTicks(6119),
                             TeacherId = 5
                         },
                         new
@@ -331,7 +266,7 @@ namespace DAL.EntityFramework.Migrations
                             Age = 32,
                             IsActive = true,
                             Name = "Somebody new",
-                            RegistrationDate = new DateTime(2020, 6, 22, 14, 2, 46, 152, DateTimeKind.Local).AddTicks(9550),
+                            RegistrationDate = new DateTime(2020, 7, 14, 12, 50, 43, 903, DateTimeKind.Local).AddTicks(6135),
                             TeacherId = 6
                         },
                         new
@@ -340,7 +275,7 @@ namespace DAL.EntityFramework.Migrations
                             Age = 56,
                             IsActive = true,
                             Name = "Limba",
-                            RegistrationDate = new DateTime(2020, 6, 22, 14, 2, 46, 152, DateTimeKind.Local).AddTicks(9553),
+                            RegistrationDate = new DateTime(2020, 7, 14, 12, 50, 43, 903, DateTimeKind.Local).AddTicks(6151),
                             TeacherId = 7
                         },
                         new
@@ -349,7 +284,7 @@ namespace DAL.EntityFramework.Migrations
                             Age = 63,
                             IsActive = true,
                             Name = "Andro",
-                            RegistrationDate = new DateTime(2020, 6, 22, 14, 2, 46, 152, DateTimeKind.Local).AddTicks(9557),
+                            RegistrationDate = new DateTime(2020, 7, 14, 12, 50, 43, 903, DateTimeKind.Local).AddTicks(6167),
                             TeacherId = 7
                         },
                         new
@@ -358,7 +293,7 @@ namespace DAL.EntityFramework.Migrations
                             Age = 22,
                             IsActive = true,
                             Name = "Morgenshetrn",
-                            RegistrationDate = new DateTime(2020, 6, 22, 14, 2, 46, 152, DateTimeKind.Local).AddTicks(9561),
+                            RegistrationDate = new DateTime(2020, 7, 14, 12, 50, 43, 903, DateTimeKind.Local).AddTicks(6183),
                             TeacherId = 8
                         },
                         new
@@ -367,7 +302,7 @@ namespace DAL.EntityFramework.Migrations
                             Age = 53,
                             IsActive = true,
                             Name = "Isaac Newton",
-                            RegistrationDate = new DateTime(2020, 6, 22, 14, 2, 46, 152, DateTimeKind.Local).AddTicks(9565),
+                            RegistrationDate = new DateTime(2020, 7, 14, 12, 50, 43, 903, DateTimeKind.Local).AddTicks(6199),
                             TeacherId = 10
                         },
                         new
@@ -376,7 +311,7 @@ namespace DAL.EntityFramework.Migrations
                             Age = 27,
                             IsActive = true,
                             Name = "Elon Musk",
-                            RegistrationDate = new DateTime(2020, 6, 22, 14, 2, 46, 152, DateTimeKind.Local).AddTicks(9568),
+                            RegistrationDate = new DateTime(2020, 7, 14, 12, 50, 43, 903, DateTimeKind.Local).AddTicks(6215),
                             TeacherId = 10
                         },
                         new
@@ -385,7 +320,7 @@ namespace DAL.EntityFramework.Migrations
                             Age = 63,
                             IsActive = true,
                             Name = "Fredie",
-                            RegistrationDate = new DateTime(2020, 6, 22, 14, 2, 46, 152, DateTimeKind.Local).AddTicks(9572),
+                            RegistrationDate = new DateTime(2020, 7, 14, 12, 50, 43, 903, DateTimeKind.Local).AddTicks(6225),
                             TeacherId = 8
                         },
                         new
@@ -394,7 +329,7 @@ namespace DAL.EntityFramework.Migrations
                             Age = 25,
                             IsActive = true,
                             Name = "Michael Jackson",
-                            RegistrationDate = new DateTime(2020, 6, 22, 14, 2, 46, 152, DateTimeKind.Local).AddTicks(9576),
+                            RegistrationDate = new DateTime(2020, 7, 14, 12, 50, 43, 903, DateTimeKind.Local).AddTicks(6240),
                             TeacherId = 6
                         },
                         new
@@ -403,7 +338,7 @@ namespace DAL.EntityFramework.Migrations
                             Age = 65,
                             IsActive = true,
                             Name = "Shadow",
-                            RegistrationDate = new DateTime(2020, 6, 22, 14, 2, 46, 152, DateTimeKind.Local).AddTicks(9579),
+                            RegistrationDate = new DateTime(2020, 7, 14, 12, 50, 43, 903, DateTimeKind.Local).AddTicks(6254),
                             TeacherId = 2
                         });
                 });
@@ -442,7 +377,7 @@ namespace DAL.EntityFramework.Migrations
                             Age = 21,
                             IsActive = true,
                             Name = "Frank",
-                            RegistrationDate = new DateTime(2020, 6, 22, 14, 2, 46, 147, DateTimeKind.Local).AddTicks(2775)
+                            RegistrationDate = new DateTime(2020, 7, 14, 12, 50, 43, 893, DateTimeKind.Local).AddTicks(6672)
                         },
                         new
                         {
@@ -450,7 +385,7 @@ namespace DAL.EntityFramework.Migrations
                             Age = 25,
                             IsActive = true,
                             Name = "James",
-                            RegistrationDate = new DateTime(2020, 6, 22, 14, 2, 46, 150, DateTimeKind.Local).AddTicks(5374)
+                            RegistrationDate = new DateTime(2020, 7, 14, 12, 50, 43, 899, DateTimeKind.Local).AddTicks(6317)
                         },
                         new
                         {
@@ -458,7 +393,7 @@ namespace DAL.EntityFramework.Migrations
                             Age = 34,
                             IsActive = true,
                             Name = "Olga",
-                            RegistrationDate = new DateTime(2020, 6, 22, 14, 2, 46, 150, DateTimeKind.Local).AddTicks(5423)
+                            RegistrationDate = new DateTime(2020, 7, 14, 12, 50, 43, 899, DateTimeKind.Local).AddTicks(6426)
                         },
                         new
                         {
@@ -466,7 +401,7 @@ namespace DAL.EntityFramework.Migrations
                             Age = 35,
                             IsActive = true,
                             Name = "Ocean",
-                            RegistrationDate = new DateTime(2020, 6, 22, 14, 2, 46, 150, DateTimeKind.Local).AddTicks(5429)
+                            RegistrationDate = new DateTime(2020, 7, 14, 12, 50, 43, 899, DateTimeKind.Local).AddTicks(6442)
                         },
                         new
                         {
@@ -474,7 +409,7 @@ namespace DAL.EntityFramework.Migrations
                             Age = 28,
                             IsActive = true,
                             Name = "Kate",
-                            RegistrationDate = new DateTime(2020, 6, 22, 14, 2, 46, 150, DateTimeKind.Local).AddTicks(5433)
+                            RegistrationDate = new DateTime(2020, 7, 14, 12, 50, 43, 899, DateTimeKind.Local).AddTicks(6457)
                         },
                         new
                         {
@@ -482,7 +417,7 @@ namespace DAL.EntityFramework.Migrations
                             Age = 40,
                             IsActive = true,
                             Name = "Harold",
-                            RegistrationDate = new DateTime(2020, 6, 22, 14, 2, 46, 150, DateTimeKind.Local).AddTicks(5437)
+                            RegistrationDate = new DateTime(2020, 7, 14, 12, 50, 43, 899, DateTimeKind.Local).AddTicks(6473)
                         },
                         new
                         {
@@ -490,7 +425,7 @@ namespace DAL.EntityFramework.Migrations
                             Age = 40,
                             IsActive = true,
                             Name = "Harold Cat",
-                            RegistrationDate = new DateTime(2020, 6, 22, 14, 2, 46, 150, DateTimeKind.Local).AddTicks(5441)
+                            RegistrationDate = new DateTime(2020, 7, 14, 12, 50, 43, 899, DateTimeKind.Local).AddTicks(6488)
                         },
                         new
                         {
@@ -498,7 +433,7 @@ namespace DAL.EntityFramework.Migrations
                             Age = 44,
                             IsActive = true,
                             Name = "Tom Hard",
-                            RegistrationDate = new DateTime(2020, 6, 22, 14, 2, 46, 150, DateTimeKind.Local).AddTicks(5444)
+                            RegistrationDate = new DateTime(2020, 7, 14, 12, 50, 43, 899, DateTimeKind.Local).AddTicks(6502)
                         },
                         new
                         {
@@ -506,7 +441,7 @@ namespace DAL.EntityFramework.Migrations
                             Age = 42,
                             IsActive = true,
                             Name = "Sinatra",
-                            RegistrationDate = new DateTime(2020, 6, 22, 14, 2, 46, 150, DateTimeKind.Local).AddTicks(5498)
+                            RegistrationDate = new DateTime(2020, 7, 14, 12, 50, 43, 899, DateTimeKind.Local).AddTicks(6517)
                         },
                         new
                         {
@@ -514,7 +449,7 @@ namespace DAL.EntityFramework.Migrations
                             Age = 56,
                             IsActive = true,
                             Name = "Dima",
-                            RegistrationDate = new DateTime(2020, 6, 22, 14, 2, 46, 150, DateTimeKind.Local).AddTicks(5502)
+                            RegistrationDate = new DateTime(2020, 7, 14, 12, 50, 43, 899, DateTimeKind.Local).AddTicks(6533)
                         });
                 });
 
@@ -713,223 +648,6 @@ namespace DAL.EntityFramework.Migrations
                         });
                 });
 
-            modelBuilder.Entity("IdentityServer4.EntityFramework.Entities.DeviceFlowCodes", b =>
-                {
-                    b.Property<string>("UserCode")
-                        .HasColumnType("nvarchar(200)")
-                        .HasMaxLength(200);
-
-                    b.Property<string>("ClientId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(200)")
-                        .HasMaxLength(200);
-
-                    b.Property<DateTime>("CreationTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Data")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)")
-                        .HasMaxLength(50000);
-
-                    b.Property<string>("DeviceCode")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(200)")
-                        .HasMaxLength(200);
-
-                    b.Property<DateTime?>("Expiration")
-                        .IsRequired()
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("SubjectId")
-                        .HasColumnType("nvarchar(200)")
-                        .HasMaxLength(200);
-
-                    b.HasKey("UserCode");
-
-                    b.HasIndex("DeviceCode")
-                        .IsUnique();
-
-                    b.HasIndex("Expiration");
-
-                    b.ToTable("DeviceCodes");
-                });
-
-            modelBuilder.Entity("IdentityServer4.EntityFramework.Entities.PersistedGrant", b =>
-                {
-                    b.Property<string>("Key")
-                        .HasColumnType("nvarchar(200)")
-                        .HasMaxLength(200);
-
-                    b.Property<string>("ClientId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(200)")
-                        .HasMaxLength(200);
-
-                    b.Property<DateTime>("CreationTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Data")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)")
-                        .HasMaxLength(50000);
-
-                    b.Property<DateTime?>("Expiration")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("SubjectId")
-                        .HasColumnType("nvarchar(200)")
-                        .HasMaxLength(200);
-
-                    b.Property<string>("Type")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(50)")
-                        .HasMaxLength(50);
-
-                    b.HasKey("Key");
-
-                    b.HasIndex("Expiration");
-
-                    b.HasIndex("SubjectId", "ClientId", "Type");
-
-                    b.ToTable("PersistedGrants");
-                });
-
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
-                {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("ConcurrencyStamp")
-                        .IsConcurrencyToken()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(256)")
-                        .HasMaxLength(256);
-
-                    b.Property<string>("NormalizedName")
-                        .HasColumnType("nvarchar(256)")
-                        .HasMaxLength(256);
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("NormalizedName")
-                        .IsUnique()
-                        .HasName("RoleNameIndex")
-                        .HasFilter("[NormalizedName] IS NOT NULL");
-
-                    b.ToTable("AspNetRoles");
-                });
-
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("ClaimType")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ClaimValue")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("RoleId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("RoleId");
-
-                    b.ToTable("AspNetRoleClaims");
-                });
-
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("ClaimType")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ClaimValue")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("UserId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("AspNetUserClaims");
-                });
-
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
-                {
-                    b.Property<string>("LoginProvider")
-                        .HasColumnType("nvarchar(128)")
-                        .HasMaxLength(128);
-
-                    b.Property<string>("ProviderKey")
-                        .HasColumnType("nvarchar(128)")
-                        .HasMaxLength(128);
-
-                    b.Property<string>("ProviderDisplayName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("UserId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("LoginProvider", "ProviderKey");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("AspNetUserLogins");
-                });
-
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
-                {
-                    b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("RoleId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("UserId", "RoleId");
-
-                    b.HasIndex("RoleId");
-
-                    b.ToTable("AspNetUserRoles");
-                });
-
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
-                {
-                    b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("LoginProvider")
-                        .HasColumnType("nvarchar(128)")
-                        .HasMaxLength(128);
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(128)")
-                        .HasMaxLength(128);
-
-                    b.Property<string>("Value")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("UserId", "LoginProvider", "Name");
-
-                    b.ToTable("AspNetUserTokens");
-                });
-
             modelBuilder.Entity("DAL.Domain.Entities.AnswerVariant", b =>
                 {
                     b.HasOne("DAL.Domain.Entities.Question", null)
@@ -973,57 +691,6 @@ namespace DAL.EntityFramework.Migrations
                     b.HasOne("DAL.Domain.Entities.Teacher", "Owner")
                         .WithMany("Tests")
                         .HasForeignKey("OwnerId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
-                {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
-                        .WithMany()
-                        .HasForeignKey("RoleId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
-                {
-                    b.HasOne("DAL.Domain.Entities.ApplicationUser", null)
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
-                {
-                    b.HasOne("DAL.Domain.Entities.ApplicationUser", null)
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
-                {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
-                        .WithMany()
-                        .HasForeignKey("RoleId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("DAL.Domain.Entities.ApplicationUser", null)
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
-                {
-                    b.HasOne("DAL.Domain.Entities.ApplicationUser", null)
-                        .WithMany()
-                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

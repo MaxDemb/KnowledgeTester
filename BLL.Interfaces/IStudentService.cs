@@ -10,5 +10,6 @@ namespace BLL.Interfaces
     {
         Task<IEnumerable<StudentDTO>> GetStudentsByTeacherAsync(int id);
         Task<StudentDTO> GetStudentByIdAsync(int id);
+        Task AddStudent(StudentDTO student);
     }
 }

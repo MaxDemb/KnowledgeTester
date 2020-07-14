@@ -24,9 +24,10 @@ namespace DAL.EntityFramework
         public ITeacherRepository Teacher { get; }
         public ITestRepository Test { get; }
          
+        public IStudentRoleRepository StudentRole { get; set; }
         public IAnswerVariantRepository AnswerVariant { get; }
 
-        private readonly ApiAuthorizationDbContext<ApplicationUser> _context;
+        private readonly DbContext _context;
 
         //public UnitOfWork(DbContext context,
         //    IQuestionRepository Question,
@@ -43,7 +44,7 @@ namespace DAL.EntityFramework
         //    this.Test = Test;
         //}
 
-        public UnitOfWork(ApiAuthorizationDbContext<ApplicationUser> context)
+        public UnitOfWork(DbContext context)
         {
             this._context = context;
             this.Question = new QuestionRepository(this._context);
@@ -52,6 +53,7 @@ namespace DAL.EntityFramework
             this.Teacher = new TeacherRepository(this._context);
             this.Test = new TestRepository(this._context);
             this.AnswerVariant = new AnswerVariantRepository(this._context);
+            this.StudentRole = new StudentRoleRepository(this._context);
 
         }
 

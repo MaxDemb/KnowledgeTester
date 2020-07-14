@@ -14,8 +14,8 @@ namespace DAL.EntityFramework.Repositories.Generic
     public abstract class GenericRepository<T>: IGenericRepository<T> where T:BaseEntity 
     {
         protected DbSet<T> DbSet { get; }
-        protected ApiAuthorizationDbContext<ApplicationUser> context;
-        protected GenericRepository(ApiAuthorizationDbContext<ApplicationUser> context)
+        protected DbContext context;
+        protected GenericRepository(DbContext context)
         {
             DbSet = context.Set<T>();
             this.context = context;

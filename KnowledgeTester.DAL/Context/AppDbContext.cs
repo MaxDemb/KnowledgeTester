@@ -13,11 +13,11 @@ using System.Text;
 
 namespace DAL.EntityFramework.Context
 {
-    public class AppDbContext : ApiAuthorizationDbContext<ApplicationUser>
+    public class AppDbContext : DbContext
     {
         public AppDbContext(
           DbContextOptions<AppDbContext> options,
-          IOptions<OperationalStoreOptions> operationalStoreOptions) : base(options, operationalStoreOptions)
+          IOptions<OperationalStoreOptions> operationalStoreOptions) : base(options)
         {
             //Database.EnsureDeleted();
             //Database.EnsureCreated();
