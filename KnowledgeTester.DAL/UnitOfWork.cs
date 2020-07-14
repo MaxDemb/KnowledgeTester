@@ -7,8 +7,6 @@ using DAL.Interfaces;
 using DAL.Interfaces.Repositories;
 using DAL.EntityFramework.Context;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.ApiAuthorization.IdentityServer;
-using DAL.Domain.Entities;
 
 
 // Видалити після видалення пустого конструктора 
@@ -24,7 +22,6 @@ namespace DAL.EntityFramework
         public ITeacherRepository Teacher { get; }
         public ITestRepository Test { get; }
          
-        public IStudentRoleRepository StudentRole { get; set; }
         public IAnswerVariantRepository AnswerVariant { get; }
 
         private readonly DbContext _context;
@@ -53,8 +50,6 @@ namespace DAL.EntityFramework
             this.Teacher = new TeacherRepository(this._context);
             this.Test = new TestRepository(this._context);
             this.AnswerVariant = new AnswerVariantRepository(this._context);
-            this.StudentRole = new StudentRoleRepository(this._context);
-
         }
 
         private bool disposed = false;

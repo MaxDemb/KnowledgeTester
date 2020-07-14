@@ -25,14 +25,15 @@ namespace BLL.Infrastructure.Services
             return Mapper.Map<IEnumerable<Test>, List<TestDTO>>(result);
         }
 
+        //CHANGE LOGIC!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         public async Task<IEnumerable<TestDTO>> GetTestsByStudentIdAsync(int id)
         {
             var student = await UnitOfWork.Student.GetByIdAsync(id);
 
-            var teacher = await UnitOfWork.Teacher.GetByIdAsync(student.TeacherId);
+            // var teacher = await UnitOfWork.Teacher.GetByIdAsync(student.TeacherId);
 
             var tests = await UnitOfWork.Test.GetAllAsync();
-            var res = tests.Where(x => x.OwnerId == teacher.Id);
+            var res = tests;//.Where(x => x.OwnerId == teacher.Id);
             return Mapper.Map<IEnumerable<Test>, List<TestDTO>>(res);
         }
 

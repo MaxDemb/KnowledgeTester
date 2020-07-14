@@ -9,6 +9,6 @@ namespace BLL.Interfaces
     public interface ITeacherService
     {
         Task<TeacherDTO> GetTeacherByIdAsync(int id); 
-        Task<TeacherDTO> GetTeacherByStudentIdAsync(int id);
+        //Task<TeacherDTO> GetTeacherByStudentIdAsync(int id);
     }
 }

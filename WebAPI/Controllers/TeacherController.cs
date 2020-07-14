@@ -57,19 +57,19 @@ namespace WebAPI.Controllers
             return Ok(res);
         }
 
-        [HttpGet("{id}")]
-        [Route("~/api/Teachers/{teacherId:int}/Students")]
-        public async Task<ActionResult<StudentDTO>> GetStudentsByTeacherId(int teacherId)
-        {
-            var res = await _studentService.GetStudentsByTeacherAsync(teacherId);
+        //[HttpGet("{id}")]
+        //[Route("~/api/Teachers/{teacherId:int}/Students")]
+        //public async Task<ActionResult<StudentDTO>> GetStudentsByTeacherId(int teacherId)
+        //{
+        //    var res = await _studentService.GetStudentsByTeacherAsync(teacherId);
 
-            if (res == null)
-            {
-                return NotFound();
-            }
+        //    if (res == null)
+        //    {
+        //        return NotFound();
+        //    }
 
-            return Ok(res);
-        }
+        //    return Ok(res);
+        //}
 
         [HttpGet("{id}")]
         [Route("~/api/Teachers/{teacherId:int}/Tests")]

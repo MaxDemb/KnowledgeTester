@@ -45,10 +45,9 @@ namespace DAL.EntityFramework.Context
             modelBuilder.ApplyConfiguration(new QuestionConfiguration());
             modelBuilder.ApplyConfiguration(new ResultConfiguration());
 
-            TeacherSeeder.SeedDatabase(modelBuilder);
-            StudentSeeder.SeedDatabase(modelBuilder);
-            TestSeeder.SeedDatabase(modelBuilder);
             //TeacherSeeder.SeedDatabase(modelBuilder);
+            //StudentSeeder.SeedDatabase(modelBuilder);
+            //TestSeeder.SeedDatabase(modelBuilder);
         }
     }
 }

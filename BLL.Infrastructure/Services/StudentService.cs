@@ -18,12 +18,12 @@ namespace BLL.Infrastructure.Services
         }
 
         //ICollection<StudentDTO>
-        public async Task<IEnumerable<StudentDTO>> GetStudentsByTeacherAsync(int id)
-        {
-            var Students = await UnitOfWork.Student.GetAllAsync();
-            var res = Students.Where(x => x.TeacherId == id);
-            return Mapper.Map<IEnumerable<Student>, ICollection<StudentDTO>>(res);
-        }
+        //public async Task<IEnumerable<StudentDTO>> GetStudentsByTeacherAsync(int id)
+        //{
+        //    var Students = await UnitOfWork.Student.GetAllAsync();
+        //    var res = Students.Where(x => x.TeacherId == id);
+        //    return Mapper.Map<IEnumerable<Student>, ICollection<StudentDTO>>(res);
+        //}
 
         public async Task<StudentDTO> GetStudentByIdAsync(int id)
         {
@@ -35,8 +35,8 @@ namespace BLL.Infrastructure.Services
 
         public async Task AddStudent(StudentDTO student)
         {
-            var studentMapped = Mapper.Map<StudentDTO, StudentRole>(student);
-            await UnitOfWork.StudentRole.CreateAsync(studentMapped);
+            var studentMapped = Mapper.Map<StudentDTO, Student>(student);
+            await UnitOfWork.Student.CreateAsync(studentMapped);
         }
     }
 }

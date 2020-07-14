@@ -18,12 +18,12 @@ namespace BLL.Infrastructure.Services
         {
         }
 
-        public async Task<TeacherDTO> GetTeacherByStudentIdAsync(int id)
-        {
-            var student = await UnitOfWork.Student.GetByIdAsync(id);
-            var teacher = await UnitOfWork.Teacher.GetByIdAsync(student.TeacherId);
-            return Mapper.Map<Teacher, TeacherDTO>(teacher);
-        }
+        //public async Task<TeacherDTO> GetTeacherByStudentIdAsync(int id)
+        //{
+        //    var student = await UnitOfWork.Student.GetByIdAsync(id);
+        //    var teacher = await UnitOfWork.Teacher.GetByIdAsync(student.TeacherId);
+        //    return Mapper.Map<Teacher, TeacherDTO>(teacher);
+        //}
 
         public async Task<TeacherDTO> GetTeacherByIdAsync(int id)
         {

@@ -70,7 +70,6 @@ namespace WebAPI
                 mc.AddProfile(new AutomapperStudentProfile());
                 mc.AddProfile(new AutomapperTestProfile());
                 mc.AddProfile(new AutomapperAnswerVariantProfile());
-                mc.AddProfile(new AutomapperStudentRoleProfile());
 
             });
 
