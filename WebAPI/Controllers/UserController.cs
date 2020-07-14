@@ -48,6 +48,11 @@ namespace WebAPI.Controllers
             else if(model.Role == "Teacher")
             {
 
+                var teacher = new TeacherDTO
+                {
+                    Name = model.UserName,
+                };
+                await _teacherService.AddTeacher(teacher);
             }
 
             var applicationUser = new ApplicationUser()

@@ -32,5 +32,11 @@ namespace BLL.Infrastructure.Services
             return resultDTO;
         }
 
+        public async Task AddTeacher(TeacherDTO teacher)
+        {
+            var teacherMapped = Mapper.Map<TeacherDTO, Teacher>(teacher);
+            await UnitOfWork.Teacher.CreateAsync(teacherMapped);
+        }
+
     }
 }
