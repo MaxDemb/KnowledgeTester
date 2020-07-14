@@ -16,6 +16,7 @@ namespace DAL.EF.Context
 
         public DbSet<ApplicationUser> ApplicationUsers { get; set; }
         public DbSet<StudentRole> Students { get; set; }
+        public DbSet<TeacherRole> Teachers { get; set; }
     }
 
 

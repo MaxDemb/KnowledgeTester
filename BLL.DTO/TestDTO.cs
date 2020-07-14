@@ -11,7 +11,6 @@ namespace BLL.DTO
         public DateTime CreationDate { get; set; }
         public DateTime OpenedDate { get; set; }
         public DateTime Deadline { get; set; }
-        public bool IsOpen { get; set; }
 
         public int OwnerId { get; set; }
         //public Teacher Owner { get; set; }

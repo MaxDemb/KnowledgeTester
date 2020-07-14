@@ -4,7 +4,14 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 
+// import {MatNativeDateModule} from '@angular/material/core';
+// import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
+// import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+// import {DemoMaterialModule} from './app/material-module';
+// import {MAT_FORM_FIELD_DEFAULT_OPTIONS} from '@angular/material/form-field';
+
 import {Routes, RouterModule} from '@angular/router';
+
 
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
@@ -20,6 +27,7 @@ import { RegistrationComponent} from './user/registration/registration.component
 import { UserComponent} from './user/user.component';
 import { NgForm} from '@angular/forms';
 import { NewTestComponent} from './test/new-test/new-test.component';
+
 
 @NgModule({
   declarations: [

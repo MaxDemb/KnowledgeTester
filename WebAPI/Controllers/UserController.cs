@@ -30,7 +30,14 @@ namespace WebAPI.Controllers
         //api/user/register
         public async Task<ActionResult<UserModel>> PostUser(UserModel model)
         {
-            model.Role = "Student";
+            if (model.Role == "Student")
+            {
+            }
+            else if(model.Role == "Teacher")
+            {
+
+            }
+
             var applicationUser = new ApplicationUser()
             {
                 UserName = model.UserName,

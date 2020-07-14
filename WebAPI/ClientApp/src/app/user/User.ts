@@ -1,5 +1,6 @@
 export interface UserModel{
     UserName:string,
     Email:string,
-    Password:string
+    Password:string,
+    Role:any
 }
