@@ -10,9 +10,11 @@ namespace DAL.Domain.Entities
 
 
 
-      //  public int TeacherId { get; set; }
-      //  public Teacher Teachers { get; set; }
+        //  public int TeacherId { get; set; }
+        //  public Teacher Teachers { get; set; }
 
+        public string UserId { get; set; }
         public ICollection<Result> Results { get; set; }
+
     }
 }

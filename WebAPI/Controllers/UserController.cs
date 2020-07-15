@@ -45,23 +45,6 @@ namespace WebAPI.Controllers
         //api/user/register
         public async Task<ActionResult<UserModel>> PostUser(UserModel model)
         {
-            if (model.Role == "Student")
-            {
-                var student = new StudentDTO
-                {
-                    Name = model.UserName,
-                };
-                await _studentService.AddStudent(student);
-            }
-            else if(model.Role == "Teacher")
-            {
-
-                var teacher = new TeacherDTO
-                {
-                    Name = model.UserName,
-                };
-                await _teacherService.AddTeacher(teacher);
-            }
 
             var applicationUser = new ApplicationUser()
             {
@@ -71,16 +54,33 @@ namespace WebAPI.Controllers
 
 
 
-            try
+            var result = await _userManager.CreateAsync(applicationUser, model.Password);
+            await _userManager.AddToRoleAsync(applicationUser, model.Role);
+
+            string userId = User.Claims.First(c => c.Type == "UserID").Value;
+            var user = await _userManager.FindByIdAsync(userId);
+            if (model.Role == "Student")
             {
-                var result = await _userManager.CreateAsync(applicationUser, model.Password);
-                await _userManager.AddToRoleAsync(applicationUser, model.Role);
-                return Ok(result);
+                var student = new StudentDTO
+                {
+                    Name = model.UserName,
+                    UserId = user.Id
+                };
+                await _studentService.AddStudent(student);
             }
-            catch (Exception ex)
+            else if (model.Role == "Teacher")
             {
-                throw ex;
+
+                var teacher = new TeacherDTO
+                {
+                    Name = model.UserName,
+                    UserId = user.Id
+                };
+                await _teacherService.AddTeacher(teacher);
             }
+
+            return Ok(result);
+
         }
 
         //[HttpPost]

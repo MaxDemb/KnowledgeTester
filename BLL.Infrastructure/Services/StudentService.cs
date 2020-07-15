@@ -38,5 +38,12 @@ namespace BLL.Infrastructure.Services
             var studentMapped = Mapper.Map<StudentDTO, Student>(student);
             await UnitOfWork.Student.CreateAsync(studentMapped);
         }
+
+        public async Task<StudentDTO> GetStudentByUserIdAsync(string userId)
+        {
+            var allStudents = await UnitOfWork.Student.GetAllAsync();
+            var Student = allStudents.Where(x => x.UserId == userId).FirstOrDefault();
+            return Mapper.Map<Student, StudentDTO>(Student);
+        }
     }
 }

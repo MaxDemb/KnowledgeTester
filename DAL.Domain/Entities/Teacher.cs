@@ -8,8 +8,10 @@ namespace DAL.Domain.Entities
     public class Teacher : BaseEntity
     {
 
-        
-      //  public ICollection<Student> Students { get; set; }
+
+        //  public ICollection<Student> Students { get; set; }
+
+        public string UserId { get; set; }
         public ICollection<Test> Tests { get; set; }
     }
 }

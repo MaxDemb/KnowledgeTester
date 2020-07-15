@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using BLL.Interfaces;
 using DAL.Domain.Entities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -15,34 +16,47 @@ namespace WebAPI.Controllers
     public class UserProfileController : ControllerBase
     {
         private UserManager<ApplicationUser> _userManager;
-        public UserProfileController(UserManager<ApplicationUser> userManager)
+        private readonly IStudentService _studentService;
+        public UserProfileController(UserManager<ApplicationUser> userManager, IStudentService studentService)
         {
             _userManager = userManager;
+            _studentService = studentService;
         }
 
-        [HttpGet]
-        [Authorize]
-        //GET : /api/UserProfile
-        public async Task<Object> GetUserProfile()
-        {
+        //[HttpGet]
+        //[Authorize]
+        ////GET : /api/UserProfile
+        //public async Task<Object> GetUserProfile()
+        //{
 
-            string userId = User.Claims.First(c => c.Type == "UserID").Value;
-            var user = await _userManager.FindByIdAsync(userId);
-            return new
-            {
-                //user.FullName,
-                user.Email,
-                user.UserName
-            };
-        }
+        //    string userId = User.Claims.First(c => c.Type == "UserID").Value;
+        //    var user = await _userManager.FindByIdAsync(userId);
+        //    return new
+        //    {
+        //        //user.FullName,
+        //        user.Email,
+        //        user.UserName
+        //    };
+        //}
 
 
         [HttpGet]
         [Authorize(Roles = "Student")]
         [Route("ForStudent")]
-        public string GetForStudent()
+        public async Task<ActionResult<object>> GetForStudent()
         {
-            return "Web method for Student";
+            string userId = User.Claims.First(c => c.Type == "UserID").Value;
+            var user = await _userManager.FindByIdAsync(userId);
+            var student = await _studentService.GetStudentByUserIdAsync(userId);
+            return new 
+            {
+                //user.FullName,
+                student.Id,
+                user.Email,
+                user.UserName,
+                
+            };
+
         }
 
         [HttpGet]
