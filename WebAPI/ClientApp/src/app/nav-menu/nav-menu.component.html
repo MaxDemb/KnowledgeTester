@@ -1,4 +1,4 @@
-<header>
+<!-- <header>
   <nav
     class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3"
   >
@@ -19,7 +19,7 @@
         class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse"
         [ngClass]="{ show: isExpanded }"
       >
-        <!-- <app-login-menu></app-login-menu> -->
+           <app-login-menu></app-login-menu> 
           <ul class="navbar-nav flex-grow">
             <li class="nav-item" [routerLinkActive]="['link-active']">
              <a class="nav-link text-dark" [routerLink]="['/teacher']">Teacher</a>
@@ -27,8 +27,26 @@
             <li class="nav-item" [routerLinkActive]="['link-active']">
               <a class="nav-link text-dark" [routerLink]="['/user/registration']">Registration</a>
              </li>
+             <li class="nav-item" [routerLinkActive]="['link-active']">
+               <a class="nav-link text-dark" [routerLink]="['/user/login']">Login</a>
+              </li>
           </ul>  
       </div>
     </div>
   </nav>
-</header>
+</header> -->
+
+
+<nav class="navbar navbar-dark bg-dark">
+  <a class="navbar-brand text-white">JWT Auth System</a>
+  <button class="btn btn-danger my-2 my-sm-0" (click)="onLogout()">Logout</button>
+</nav>
+
+<div class="card m-5" style="width:18rem" *ngIf="userDetails">
+  <ul class="list-group">
+    <li class="list-group-item"><strong>Username : </strong>{{userDetails.userName}}</li>
+    <li class="list-group-item"><strong>FullName : </strong>{{userDetails.fullName}}</li>
+    <li class="list-group-item"><strong>Email : </strong>{{userDetails.email}}</li>
+  </ul>
+</div>
+<br>

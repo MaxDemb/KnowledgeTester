@@ -31,6 +31,7 @@ export class RegistrationComponent implements OnInit {
       Password : this.password,
       Role : this.role
     };
+    console.log(this.user.Role);
     this.userService.RegistrateUser(this.user).subscribe(res => this.user2 = res);
     console.log("success");
   }

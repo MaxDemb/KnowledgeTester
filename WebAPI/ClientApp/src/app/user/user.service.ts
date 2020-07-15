@@ -14,4 +14,26 @@ export class UserService {
   RegistrateUser(model:UserModel){
     return this.http.post(this.baseUrl + 'api/user/register', model);
   }
+
+  login(model: UserModel){
+    return this.http.post(this.baseUrl + 'api/user/login', model);
+  }
+
+  getUserProfile(){
+    return this.http.get(this.baseUrl + 'api/UserProfile');
+  }
+
+  
+  roleMatch(allowedRoles): boolean {
+    var isMatch = false;
+    var payLoad = JSON.parse(window.atob(localStorage.getItem('token').split('.')[1]));
+    var userRole = payLoad.role;
+    allowedRoles.forEach(element => {
+      if (userRole == element) {
+        isMatch = true;
+        return false;
+      }
+    });
+    return isMatch;
+  }
 }

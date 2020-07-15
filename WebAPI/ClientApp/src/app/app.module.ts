@@ -24,9 +24,14 @@ import { StudentComponent} from './student/student/student.component';
 import { TestComponent } from './test/test-for-student/test.component';
 import { TestTeacherComponent } from './test/test-teacher/test-teacher.component';
 import { RegistrationComponent} from './user/registration/registration.component';
-import { UserComponent} from './user/user.component';
 import { NgForm} from '@angular/forms';
 import { NewTestComponent} from './test/new-test/new-test.component';
+import { LoginComponent } from './user/login/login.component';
+import { AuthGuard } from './user/auth/auth.guard';
+import { HomeComponent } from './home/home.component';
+import { UserService } from './user/user.service';
+import { AuthInterceptor } from './user/auth/auth.interceptor';
+import { FordibbenComponent } from './user/fordibben/fordibben.component';
 
 
 @NgModule({
@@ -39,33 +44,35 @@ import { NewTestComponent} from './test/new-test/new-test.component';
     TestsByTeacherComponent,
     TestsByStudentNodeComponent,
     StudentComponent,
-    UserComponent,
+    LoginComponent,
     RegistrationComponent,
     TestComponent,
     NewTestComponent,
-    TestTeacherComponent
+    TestTeacherComponent,
+    HomeComponent,
+    FordibbenComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
     RouterModule.forRoot([
-        { path: 'teacher', component: TeacherComponent },
+        { path: 'teacher', component: TeacherComponent, canActivate:[AuthGuard], data :{permittedRoles:['Teacher']} },
         { path: 'user/registration', component: RegistrationComponent},
-        { path: 'user',  component: UserComponent} ,
-       // { path: 'students-by-teacher', component: StudentsByTeacherComponent},
-       // { path: 'student-node', component: StudentNodeComponent},
-        //{ path: 'tests-by-teacher', component: TestsByTeacherComponent},
-        //{ path: 'tests-by-teacher-node', component: TestsByTeacherNodeComponent},
-        { path: 'student', component: StudentComponent},
+        { path:'user/login', component: LoginComponent},
+        { path: 'home', component: HomeComponent, canActivate:[AuthGuard]},
+        { path: 'student', component: StudentComponent, canActivate:[AuthGuard], data :{permittedRoles:['Student']}},
+        { path: 'fordibben', component: FordibbenComponent, canActivate:[AuthGuard]},
         { path: 'test/:id/student/:studentId', component: TestComponent},
         { path: 'test/:id/teacher/:teacherId/', component: TestTeacherComponent},
         { path: 'newtest/:teacherId', component: NewTestComponent}
     ])
   ],
-  providers: [
-    
-  ],
+  providers: [UserService, {
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
