@@ -13,6 +13,5 @@ namespace DAL.Domain.Entities
 
         public string UserId { get; set; }
         public ICollection<Test> Tests { get; set; }
-        public string UserId { get; set; }
     }
 }
