@@ -1,0 +1,18 @@
+.date-container{
+    display: flex;
+    justify-content: space-between;
+}
+
+.date-group{
+    width: 45%;
+}
+
+.date-group-forms{
+    
+    display: flex;
+    justify-content: space-between; 
+}
+
+.date-group-forms > *{
+    width: 30%;
+}

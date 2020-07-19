@@ -1,0 +1,23 @@
+<div class="teacher-node flex-container-big">
+    <div>
+        <div class="flex-container">
+            <h5><a [routerLink]="['/test', id, studentId]">{{name}}</a></h5>
+            <p class="test-active" [hidden]="!isOpen">
+               <b> 
+                   Active!
+                </b>
+            </p>
+            <p class="test-unactive" [hidden]="isOpen">
+                <b>Unactive!</b>
+            </p>
+        </div>
+        <div class="flex-container">
+            <p><b>Open date:</b> {{openedDate}}</p>
+            <p><b>Deadline:</b> {{deadline}}</p>
+        </div> 
+    </div>
+    <!-- <div>
+        <button type="button" [hidden] = "!isOpen" class="btn btn-warning">Start test</button>
+        <button type="button" [hidden] = "isOpen" class="btn btn-success">Test already passed</button>
+    </div> -->
+</div>

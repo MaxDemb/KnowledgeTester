@@ -1,0 +1,30 @@
+<div class="flex-container">
+    <h1>{{test.name}}</h1>
+
+    <p class="test-active" [hidden]="!test.isOpen">
+        <b> 
+            Active!
+         </b>
+     </p>
+     <p class="test-unactive" [hidden]="test.isOpen">
+         <b>Unactive!</b>
+     </p>
+</div>
+
+<div class="Info">
+    <br>
+    <div>OpenDate: {{test.openedDate}}</div>
+    <div><b>Deadline:</b> <b class="test-unactive">{{test.deadline}}</b></div>
+    <br>
+</div>
+
+
+
+<div>
+    <a>
+        <button type="button" [hidden] = "!canPass" class="btn btn-warning">Start test</button>
+    </a>
+    <a>
+        <button type="button" [hidden] = "canSeeResults" class="btn btn-success">Watch results</button>
+    </a>
+</div>
