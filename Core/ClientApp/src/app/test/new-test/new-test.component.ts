@@ -41,9 +41,9 @@ export class NewTestComponent implements OnInit {
     this.opened.setDate(this.day_open);
 
     this.closed = new Date();
-    this.closed.setFullYear(this.year_open);
-    this.closed.setMonth(this.month_open);
-    this.closed.setDate(this.day_open);
+    this.closed.setFullYear(this.year_closed);
+    this.closed.setMonth(this.month_closed);
+    this.closed.setDate(this.day_closed);
 
 
     this.test =  {     
@@ -51,7 +51,7 @@ export class NewTestComponent implements OnInit {
       openedDate : this.opened,
       creationDate : new Date(),
       deadline : this.closed,
-      ownerId : 1,
+      ownerId : localStorage.getItem('id'),
       isOpen : true
     };
     console.log(this.test);

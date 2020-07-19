@@ -29,6 +29,8 @@ constructor(private router:Router) {
   
   onLogout() {
     localStorage.removeItem('token');
+    localStorage.removeItem('id');
+    localStorage.removeItem('role');
     this.router.navigate(['/user/login']);
   }
 }

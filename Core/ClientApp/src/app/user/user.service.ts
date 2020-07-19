@@ -1,6 +1,7 @@
 import { Injectable, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { UserModel} from './User';
+import { ProfileFromBack } from './ProfileFromBack';
 
 @Injectable({
   providedIn: 'root'
@@ -24,6 +25,15 @@ export class UserService {
   }
 
   
+  getTeacherProfileObservable(){
+    return this.http.get<ProfileFromBack>(this.baseUrl + 'api/UserProfile/ForTeacher');
+  }
+  
+  
+  getStudentProfileObservable(){
+    return this.http.get<ProfileFromBack>(this.baseUrl + 'api/UserProfile/ForStudent');
+  }
+
   roleMatch(allowedRoles): boolean {
     var isMatch = false;
     var payLoad = JSON.parse(window.atob(localStorage.getItem('token').split('.')[1]));
@@ -35,5 +45,9 @@ export class UserService {
       }
     });
     return isMatch;
+  }
+
+  getRole(){
+    return JSON.parse(window.atob(localStorage.getItem('token').split('.')[1])).role;
   }
 }

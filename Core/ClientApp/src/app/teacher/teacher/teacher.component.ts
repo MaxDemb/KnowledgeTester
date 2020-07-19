@@ -4,6 +4,7 @@ import { TeacherService } from '../teacher.service';
 import { filter } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { TestNode } from '../../test/TestNode';
+import { NumberValueAccessor } from '@angular/forms';
 
 @Component({
   selector: 'app-teacher',
@@ -19,14 +20,18 @@ export class TeacherComponent implements OnInit {
   
   tests$: Observable<TestNode[]>;
   tests: TestNode[]; 
+
+  id:number;
   
   constructor(private teacherService: TeacherService) { }
 
   ngOnInit() {
-    this.teacher$ = this.teacherService.getTeacherObservable(2);
+    this.id = Number(localStorage.getItem('id'));
+    console.log(this.id);
+    this.teacher$ = this.teacherService.getTeacherObservable(this.id);
     this.teacher$.subscribe(x => {this.teacher = x;});
     
-    this.tests$ = this.teacherService.getTestsByTeacherIdObservable(2);
+    this.tests$ = this.teacherService.getTestsByTeacherIdObservable(this.id);
     this.tests$.subscribe(x => {this.tests = x;});
   
   }
@@ -39,5 +44,7 @@ export class TeacherComponent implements OnInit {
     this.isTests = !this.isTests;
   }
 
-
+  testExists(){
+    return this.tests.length;
+  }
 }

@@ -59,13 +59,13 @@ import { FordibbenComponent } from './user/fordibben/fordibben.component';
     RouterModule.forRoot([
         { path: 'teacher', component: TeacherComponent, canActivate:[AuthGuard], data :{permittedRoles:['Teacher']} },
         { path: 'user/registration', component: RegistrationComponent},
-        { path:'user/login', component: LoginComponent},
+        { path: 'user/login', component: LoginComponent},
         { path: 'home', component: HomeComponent, canActivate:[AuthGuard]},
         { path: 'student', component: StudentComponent, canActivate:[AuthGuard], data :{permittedRoles:['Student']}},
         { path: 'fordibben', component: FordibbenComponent, canActivate:[AuthGuard]},
         { path: 'test/:id/student/:studentId', component: TestComponent},
         { path: 'test/:id/teacher/:teacherId/', component: TestTeacherComponent},
-        { path: 'newtest/:teacherId', component: NewTestComponent}
+        { path: 'newtest', component: NewTestComponent}
     ])
   ],
   providers: [UserService, {

@@ -10,7 +10,7 @@
 
 
 <div>
-    <a [routerLink]="['/newtest', 1]">
+    <a [routerLink]="['/newtest']">
         <button class="btn btn-success">
             New Test
         </button>
@@ -21,11 +21,12 @@
 
 
 <div>
-    <button type="button" [hidden] = "isStudents" class="btn btn-success" (click)="showStudents()">Show students</button>
-    <button type="button" [hidden] = "!isStudents" class="btn btn-warning" (click)="showStudents()">Hide students</button>
-
-    <button type="button" [hidden] = "isTests" class="btn btn-success" (click)="showTests()">Show tests</button>
-    <button type="button" [hidden] = "!isTests" class="btn btn-warning" (click)="showTests()">Hide tests</button>
+    <!-- <button type="button" [hidden] = "isStudents" class="btn btn-success" (click)="showStudents()">Show students</button>
+    <button type="button" [hidden] = "!isStudents" class="btn btn-warning" (click)="showStudents()">Hide students</button> -->
+    <div *ngIf="testExists()">
+        <button type="button" *ngIf = "!isTests" class="btn btn-success" (click)="showTests()">Show tests</button>
+        <button type="button" *ngIf = "isTests" class="btn btn-warning" (click)="showTests()">Hide tests</button>
+    </div>
 </div>
 
 <div class="divider"></div>
