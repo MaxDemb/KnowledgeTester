@@ -9,6 +9,7 @@ using DAL.Domain.Entities;
 using System.Threading.Tasks;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using System.Security.Cryptography.X509Certificates;
 
 namespace BLL.Infrastructure.Services
 {
@@ -24,6 +25,15 @@ namespace BLL.Infrastructure.Services
         //    var teacher = await UnitOfWork.Teacher.GetByIdAsync(student.TeacherId);
         //    return Mapper.Map<Teacher, TeacherDTO>(teacher);
         //}
+
+        public async Task<int> GetTeacherIdByUserIdAsync(string userId)
+        {
+            var allTeachers = await UnitOfWork.Teacher.GetAllAsync();
+            var result = allTeachers.Where(x => x.UserId == userId).FirstOrDefault();
+            var resultDTO = Mapper.Map<Teacher, TeacherDTO>(result);
+            return resultDTO.Id;
+        }
+
 
         public async Task<TeacherDTO> GetTeacherByIdAsync(int id)
         {

@@ -16,6 +16,6 @@ namespace BLL.DTO
 
 
         //public ICollection<StudentDTO> Students { get; set; }
-        //public ICollection<TestDTO> Tests { get; set; }
+        public ICollection<TestDTO> Tests { get; set; }
     }
 }

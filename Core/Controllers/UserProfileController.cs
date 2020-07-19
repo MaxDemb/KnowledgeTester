@@ -8,6 +8,8 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Core.Models;
 using DAL.Domain.Entities;
+using BLL.Infrastructure.Services;
+using BLL.Interfaces;
 
 namespace Core.Controllers
 {
@@ -16,9 +18,13 @@ namespace Core.Controllers
     public class UserProfileController : ControllerBase
     {
         private UserManager<ApplicationUser> _userManager;
-        public UserProfileController(UserManager<ApplicationUser> userManager)
+        private readonly ITeacherService _teacherService;
+        private readonly IStudentService _studentService;
+        public UserProfileController(UserManager<ApplicationUser> userManager, ITeacherService teacherService, IStudentService studentService)
         {
             _userManager = userManager;
+            _teacherService = teacherService;
+            _studentService = studentService;
         }
 
         [HttpGet]
@@ -38,17 +44,37 @@ namespace Core.Controllers
         [HttpGet]
         [Authorize(Roles = "Teacher")]
         [Route("ForTeacher")]
-        public string GetForTeacher()
+        public async Task<TeacherModel> GetForTeacher()
         {
-            return "Web method for Teacher";
+            string userId = User.Claims.First(c => c.Type == "UserID").Value;
+            var user = await _userManager.FindByIdAsync(userId);
+
+            int teacherId = await _teacherService.GetTeacherIdByUserIdAsync(userId); 
+
+            return new TeacherModel
+            {
+                Id = teacherId, 
+                Email = user.Email,
+                UserName = user.UserName
+            };
         }
 
         [HttpGet]
         [Authorize(Roles = "Student")]
         [Route("ForStudent")]
-        public string GetStudent()
+        public async Task<ActionResult<StudentModel>> GetStudent()
         {
-            return "Web method for Student";
+            string userId = User.Claims.First(c => c.Type == "UserID").Value;
+            var user = await _userManager.FindByIdAsync(userId);
+
+            int studentId = await _studentService.GetStudentdByUserIdAsync(userId);
+
+            return new StudentModel
+            {
+                Id = studentId,
+                Email = user.Email,
+                UserName = user.UserName
+            };
         }
 
         [HttpGet]

@@ -11,5 +11,6 @@ namespace BLL.Interfaces
         Task<TeacherDTO> GetTeacherByIdAsync(int id);
         //Task<TeacherDTO> GetTeacherByStudentIdAsync(int id);
         Task AddTeacher(TeacherDTO teacher);
+        Task<int> GetTeacherIdByUserIdAsync(string userId);
     }
 }
