@@ -33,6 +33,7 @@ export class TestStudentComponent implements OnInit {
     this.result = {
       id : 0,
       name : 'RandomName',
+      passed: false,
       rightAnswers : 0,
       testId : this.id,
       studentId : Number(localStorage.getItem('id'))

@@ -17,7 +17,7 @@ namespace DAL.Domain.Entities
 
         public int RightAnswers { get; set; }
 
-
+        public bool Passed { get; set; }
         public int TestId { get; set; }
         public Test Test { get; set; }
         

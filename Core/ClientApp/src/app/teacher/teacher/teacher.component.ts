@@ -17,7 +17,7 @@ export class TeacherComponent implements OnInit {
   teacher$:Observable<Teacher>
   teacher:Teacher;
   isStudents:boolean  = false;
-  isTests:boolean = false;
+  isTests:boolean = true;
   
   tests$: Observable<TestNode[]>;
   tests: TestNode[]; 

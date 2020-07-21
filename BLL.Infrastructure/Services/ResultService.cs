@@ -8,6 +8,7 @@ using BLL.Interfaces;
 using System.Linq;
 using System.Threading.Tasks;
 using DAL.Domain.Entities;
+using System.Security.Cryptography.X509Certificates;
 
 namespace BLL.Infrastructure.Services
 {
@@ -35,8 +36,30 @@ namespace BLL.Infrastructure.Services
 
         public async Task<ResultDTO> AddResultAsync(ResultDTO modelDTO)
         {
+            var questions = await UnitOfWork.Question.GetAllAsync();
+            questions = questions.Where(x => x.TestId == modelDTO.TestId);
+            var questionsLength = questions.ToArray().Length;
+
+            if (questionsLength > 0)
+            {
+
+                double questionLenghtDouble = questionsLength / 1.0;
+                double percentage = modelDTO.RightAnswers / questionLenghtDouble;
+                if (percentage >= 0.6)
+                {
+                    modelDTO.Passed = true;
+                }
+            }
+            else
+            {
+                modelDTO.Passed = true;
+            }
+
+
+
             var model = Mapper.Map<ResultDTO, Result>(modelDTO);
             await UnitOfWork.Result.CreateAsync(model);
+            
             return modelDTO;
         }
 

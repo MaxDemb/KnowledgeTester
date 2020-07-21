@@ -1,0 +1,14 @@
+<div *ngIf="isCalculated">
+    <h3>Result for test {{testName}}</h3>
+    <div>
+        <app-student-by-result  *ngFor="let student of students" 
+        [testId]="testId"
+        [studentId]="student.id"
+        [studentName]="student.name"
+        >
+        
+        </app-student-by-result>
+
+    </div>
+</div>
+

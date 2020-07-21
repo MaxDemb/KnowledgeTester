@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using BLL.DTO;
 using BLL.Interfaces;
+using DAL.EntityFramework.Configurations;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -39,5 +40,18 @@ namespace Core.Controllers
 
         }
 
+
+        [HttpGet("{id}")]
+        [Route("~/api/Students/triedTest/{id}")]
+        public async Task<ActionResult<IEnumerable<StudentDTO>>> GetStudentsThatTriedToPassTest(int id)
+        {
+            var res = await _studentService.getAllStudentsTriedToPassTest(id);
+            if(res != null)
+            {
+                return Ok(res);
+            }
+            return BadRequest();
+        }
+            
     }
 }

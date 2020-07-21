@@ -27,7 +27,7 @@ export class StudentComponent implements OnInit {
   tests$: Observable<TestNode[]>;
   tests:TestNode[];
 
-  isTests:boolean = false;
+  isTests:boolean = true;
 
   constructor(private studentService: StudentServiceService, private testService: TestService,
      private resultService: ResultService, private router:Router) { }

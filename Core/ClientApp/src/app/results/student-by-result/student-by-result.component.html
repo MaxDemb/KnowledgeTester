@@ -1,0 +1,41 @@
+<div *ngIf="!resultCalculated" class="teacher-node container-border container-flex">
+    <div class="container-flex">
+        <div>
+            <h4><a>{{studentName}}</a></h4>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="resultCalculated && !resultFromBack.passed" class="teacher-node container-border container-flex wrong">
+    <div class="container-flex">
+        <div>
+            <h4><a>{{studentName}}</a></h4>  
+        </div>
+    </div>
+    <div  class="container-flex end">
+        
+        <div>
+            {{resultFromBack.rightAnswers}} Right Answers / {{questions.length}}         
+        </div>
+        <b  style="margin-left: 30px;">Failed</b>
+    </div>
+</div>
+
+
+<div *ngIf="resultCalculated && resultFromBack.passed" class="teacher-node container-border container-flex right">
+    <div class="container-flex">
+        <div>
+            <h4><a>{{studentName}}</a></h4>
+         
+        </div>
+    </div>
+
+    <div  class="container-flex end">
+        <div>
+            {{resultFromBack.rightAnswers}} Right Answers / {{questions.length}}   
+        </div>
+        <b style="margin-left: 30px;">Success</b>
+    </div>
+</div>
+
+

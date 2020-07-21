@@ -73,6 +73,7 @@ export class PassTestComponent implements OnInit {
 
     this.result = {
       id : 0,
+      passed: false,
       name : 'RandomName',
       rightAnswers : 0,
       testId : this.testId,

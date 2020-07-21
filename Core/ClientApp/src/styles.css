@@ -36,6 +36,14 @@ input[type="radio"]{
 }
 
 
+.right{
+  background-color: rgb(40, 167, 69, 0.2);
+}
+
+.wrong{
+  background-color: #fabac075;
+}
+
 
 .container-flex{
   display: flex;

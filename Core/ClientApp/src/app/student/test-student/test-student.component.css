@@ -30,8 +30,14 @@
     justify-content: space-between;
 }
 
-button{
-    margin-right: 20px;
-    margin-top: 10px;
+.end{
+    margin: 10px;
+}
+
+
+.resultIndicator{
+    padding:20px;
+    padding-bottom: 0;
+    border-radius: 5px;
 }
 

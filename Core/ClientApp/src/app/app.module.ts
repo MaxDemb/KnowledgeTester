@@ -31,6 +31,8 @@ import {TestStudentComponent } from './student/test-student/test-student.compone
 import {PassQuestionComponent} from './question/pass-question/pass-question.component';
 import {FooterComponent} from './nav-menu/footer/footer.component';
 import {PassTestComponent} from './test/pass-test/pass-test.component';
+import { ResultComponent} from './results/result/result.component';
+import {StudentByResultComponent} from './results/student-by-result/student-by-result.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +49,9 @@ import {PassTestComponent} from './test/pass-test/pass-test.component';
     CreateQuestionComponent,
     TestStudentComponent,
     PassTestComponent,
-    PassQuestionComponent
+    PassQuestionComponent,
+    ResultComponent,
+    StudentByResultComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -59,6 +63,7 @@ import {PassTestComponent} from './test/pass-test/pass-test.component';
       { path: 'teacher', component: TeacherComponent, canActivate:[AuthGuard], data :{permittedRoles:['Teacher']} },
       { path: 'newtest', component: NewTestComponent , canActivate:[AuthGuard], data :{permittedRoles:['Teacher']} },
       { path: 'create-question', component: CreateQuestionComponent, canActivate:[AuthGuard], data :{permittedRoles:['Teacher']} },
+      { path: 'results', component: ResultComponent, canActivate:[AuthGuard], data :{permittedRoles:['Teacher']} },
       { path: 'student', component: StudentComponent, canActivate:[AuthGuard], data :{permittedRoles:['Student']}},
       { path: 'pass-test', component: PassTestComponent,  canActivate:[AuthGuard], data :{permittedRoles:['Student']}}
       // { path: 'fordibben', component: FordibbenComponent, canActivate:[AuthGuard]},

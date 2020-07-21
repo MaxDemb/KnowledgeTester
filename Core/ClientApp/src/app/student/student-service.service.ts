@@ -17,5 +17,8 @@ export class StudentServiceService {
     return this.http.get<Student>(this.baseUrl + 'api/students/' + id + '/student');
   }
   
+  getAllStudentsTriedToPassTest(id:number){
+    return this.http.get<Student[]>(this.baseUrl + 'api/students/triedTest/'+ id);
+  }
 
 }
