@@ -1,0 +1,10 @@
+<h2>Test {{testName}}</h2>
+
+<div class="container-border tests">
+    <h3>Questions</h3>
+    <app-pass-question *ngFor="let question of questions" 
+    [id]="question.id"
+    [name]="question.name">
+    
+    </app-pass-question>
+</div>

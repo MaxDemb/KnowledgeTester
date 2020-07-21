@@ -9,5 +9,6 @@ namespace BLL.Interfaces
     public interface IAnswerVariantService
     {
         Task<AnswerVariantDTO> CreateAnswerVariant(AnswerVariantDTO answerVariantDTO);
+        Task<IEnumerable<AnswerVariantDTO>> getAnswerVariantsByQuestionIdAsync(int id);
     }
 }

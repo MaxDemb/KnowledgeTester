@@ -9,11 +9,11 @@ namespace BLL.DTO
         public int Id { get; set; }
         public string Name { get; set; }
 
-        public string UserId { get; set; }
+        public int OwnerId { get; set; }
 
-        //public DateTime CreationDate { get; set; }
-        //public DateTime OpenedDate { get; set; }
-        //public DateTime Deadline { get; set; }
+        public DateTime CreationDate { get; set; }
+        public DateTime OpenedDate { get; set; }
+        public DateTime Deadline { get; set; }
 
         //public int OwnerId { get; set; }
         //public Teacher Owner { get; set; }

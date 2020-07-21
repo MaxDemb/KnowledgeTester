@@ -16,13 +16,6 @@ export class StudentServiceService {
   getStudentObservable(id:number){
     return this.http.get<Student>(this.baseUrl + 'api/students/' + id + '/student');
   }
-
-  getTeacherByStudentObservable(id:number){
-    return this.http.get<Teacher>(this.baseUrl + 'api/students/' + id + '/teacher');
-  }
-
-  getTestsByStudentObservable(id:number){
-    return this.http.get<TestNode>(this.baseUrl + 'api/students/' + id + '/tests');
-  }
+  
 
 }

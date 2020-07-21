@@ -48,7 +48,11 @@ export class LoginComponent implements OnInit {
             localStorage.setItem("id", String(x.id));
           });
           
-          this.router.navigateByUrl('/student');
+          setTimeout(() => 
+          {
+              this.router.navigate(['/student']);
+          },
+          300);
 
 
         }
@@ -58,8 +62,12 @@ export class LoginComponent implements OnInit {
             localStorage.setItem("id", String(x.id));
           });
           
-          this.router.navigateByUrl('/teacher');
-
+          // this.router.navigateByUrl('/teacher');
+          setTimeout(() => 
+          {
+              this.router.navigate(['/teacher']);
+          },
+          300);
 
         }
         

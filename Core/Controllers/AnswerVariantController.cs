@@ -28,5 +28,17 @@ namespace Core.Controllers
         {
             return await _answerVariantService.CreateAnswerVariant(model);
         }
+
+        [HttpGet]
+        [Route("~/api/answerVariant/getByTestId/{id}")]
+        public async Task<ActionResult<IEnumerable<AnswerVariantDTO>>> getByQuestionId(int id)
+        {
+            var res = await _answerVariantService.getAnswerVariantsByQuestionIdAsync(id);    
+            if(res == null)
+            {
+                return BadRequest(res);
+            }
+            return Ok(res);
+        }
     }
 }

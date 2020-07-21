@@ -1,0 +1,69 @@
+<h2>Test {{testName}}</h2>
+<h3>Create question N{{questionNumber}}</h3>
+
+<form class="container-border" #myForm="ngForm" novalidate>
+    <div class="form-group">
+        <label>Question</label>
+        <input class="form-control" name="name" [(ngModel)]="questionName" required />
+    </div>
+
+    <div class="container-border light-border">
+        <div class="form-group">
+            <label>Answer Variant 1</label>
+            <input class="form-control" name="variant1" [(ngModel)]="variant1" required />
+        </div>
+        <div class="form-group">
+            <label>Answer Variant 2</label>
+            <input class="form-control" name="variant2" [(ngModel)]="variant2" required />
+        </div>
+        <div class="form-group">
+            <label>Answer Variant 3</label>
+            <input class="form-control" name="variant3" [(ngModel)]="variant3" required />
+        </div>
+        <div class="form-group">
+            <label>Answer Variant 4</label>
+            <input class="form-control" name="variant4" [(ngModel)]="variant4" required />
+        </div>
+
+
+        <div>
+            <p>Choose right answer:</p>
+            <div class="container-flex">
+                <div>
+                    <input id="1" type="radio"  value="1" name="gender" [(ngModel)]="radio" required>
+                    <label for="1">1</label>
+                </div>
+                 
+                <div>
+                <input id="2" type="radio" value="2" name="gender" [(ngModel)]="radio" required>
+                    <label for="2">2</label>
+                </div>
+                
+                <div>
+                    <input id="3" type="radio"  value="3" name="gender" [(ngModel)]="radio" required>
+                    <label for="3">3</label>
+                </div>
+                 
+                <div>
+                <input id="4" type="radio" value="4" name="gender" [(ngModel)]="radio" required>
+                    <label for="4">4</label>
+                </div>
+                <br>
+            </div>
+            <br>
+        </div>
+    </div>
+
+    
+    <div class="container-flex start">
+        <div class="form-group">
+            <button [disabled]="myForm.invalid"
+                    class="btn btn-outline-success" (click)="submit()">Add</button>
+        </div>   
+        <div style="margin-left:20px;">
+            <button class="btn btn-outline-warning"  (click)="cancel()">Stop adding questions</button>
+
+        </div> 
+
+    </div>
+</form>

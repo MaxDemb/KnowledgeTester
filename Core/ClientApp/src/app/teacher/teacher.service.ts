@@ -1,7 +1,6 @@
 import { Injectable, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Teacher } from './teacher/teacher';
-import { StudentByTeacher } from './students-by-teacher/student-node/StudentByTeacher';
 import { TestNode } from '../test/TestNode';
 
 @Injectable({
@@ -14,11 +13,6 @@ export class TeacherService {
   getTeacherObservable(id : number){
     return this.http.get<Teacher>(this.baseUrl + 'api/teachers/' + id + '/teacher');
   }
-
-  getStudentByTeacherIdObservable(id : number){
-    return this.http.get<StudentByTeacher[]>(this.baseUrl + 'api/teachers/' + id + '/students');
-  }
-
 
   getTestsByTeacherIdObservable(id : number){
     return this.http.get<TestNode[]>(this.baseUrl + 'api/teachers/' + id + '/tests');

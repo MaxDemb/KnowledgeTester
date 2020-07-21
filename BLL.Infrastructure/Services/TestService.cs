@@ -53,8 +53,18 @@ namespace BLL.Infrastructure.Services
                 throw new Exception("Foreign key is not right");
             }
             await UnitOfWork.Test.CreateAsync(test);
-           
-            return testDTO;
+
+            var allTests = await UnitOfWork.Test.GetAllAsync();
+            var result = allTests.Where(x => x.CreationDate == testDTO.CreationDate && x.Name == testDTO.Name).FirstOrDefault();
+            var resultDTO = Mapper.Map<Test, TestDTO>(result);
+            return resultDTO;
         }
+
+        public async Task<IEnumerable<TestDTO>> GetAllTestsAsync()
+        {
+            var res = await UnitOfWork.Test.GetAllAsync();
+            return Mapper.Map<IEnumerable<Test>, IEnumerable<TestDTO>>(res);
+        }
+
     }
 }

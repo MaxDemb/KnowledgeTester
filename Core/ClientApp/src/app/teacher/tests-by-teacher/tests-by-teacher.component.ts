@@ -18,6 +18,8 @@ export class TestsByTeacherComponent implements OnInit {
   constructor(private teacherService: TeacherService) { }
 
   ngOnInit() {
+    console.log(this.name);
+    console.log(this.openedDate);
   }
 
 }

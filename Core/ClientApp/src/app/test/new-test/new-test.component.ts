@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TestModel} from '../TestModel';
 import { from } from 'rxjs';
 import { TestService } from '../test.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-new-test',
   templateUrl: './new-test.component.html',
@@ -28,7 +29,7 @@ export class NewTestComponent implements OnInit {
   test2: any;
   somedate : Date;
     
-  constructor(private testService: TestService) { }
+  constructor(private testService: TestService,  private router: Router) { }
 
   ngOnInit() { 
     
@@ -45,17 +46,26 @@ export class NewTestComponent implements OnInit {
     this.closed.setMonth(this.month_closed);
     this.closed.setDate(this.day_closed);
 
-
     this.test =  {     
       name : this.name,
       openedDate : this.opened,
       creationDate : new Date(),
       deadline : this.closed,
-      ownerId : localStorage.getItem('id'),
+      ownerId : Number(localStorage.getItem('id')),
       isOpen : true
     };
-    console.log(this.test);
-    this.testService.postNewTest(this.test).subscribe(res => {this.test2 = res});
-    console.log(this.test2);
+    this.testService.postNewTest(this.test)
+      .subscribe(res => {
+        localStorage.setItem('testId', String(res.id));
+        localStorage.setItem('testName', res.name);
+      });
+
+    localStorage.setItem('currentQuestion', String(1));
+
+    setTimeout(() => 
+    {
+        this.router.navigate(['/create-question']);
+    },
+    300);
   }
 }

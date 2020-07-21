@@ -4,6 +4,8 @@ import { Observable, TeardownLogic } from 'rxjs';
 import { Student } from './students';
 import { Teacher } from '../../teacher/teacher/teacher';
 import { TestNode } from '../../test/TestNode';
+import { TeacherService } from '../../teacher/teacher.service';
+import { TestService } from '../../test/test.service';
 
 @Component({
   selector: 'app-student',
@@ -14,28 +16,45 @@ export class StudentComponent implements OnInit {
 
   student$: Observable<Student>;
   student: Student;
+
+  id:number;
+
   teacher$: Observable<Teacher>;
   teacher: Teacher;
-  test$: Observable<TestNode>;
-  tests:TestNode;
+  tests$: Observable<TestNode[]>;
+  tests:TestNode[];
 
   isTests:boolean = false;
 
-  constructor(private studentService: StudentServiceService) { }
+  constructor(private studentService: StudentServiceService, private testService: TestService) { }
 
   ngOnInit() {
-    this.student$ = this.studentService.getStudentObservable(2);
+
+    this.id = Number(localStorage.getItem('id'));
+
+    this.student$ = this.studentService.getStudentObservable(this.id);
     this.student$.subscribe(x => {this.student = x;});
-    this.teacher$ = this.studentService.getTeacherByStudentObservable(2);
-    this.teacher$.subscribe(x => {this.teacher = x;});
-    this.test$ = this.studentService.getTestsByStudentObservable(2);
-    this.test$.subscribe(x => {this.tests = x;});
+    this.tests$ = this.testService.getAllTestsObservable();
+    this.tests$.subscribe( res =>{
+      this.tests = res;
+    });
+    setTimeout(() => 
+    {
+      console.log(this.student.id);
+      console.log(this.tests.length);
+    },
+    1000);
+
+  //  this.tests$ = this.testService.getTestObservable(this.student.id);
     
   }
 
   showTests()
   {
     this.isTests = !this.isTests;
+  }
+  testExists(){
+    return this.tests.length;
   }
 
 }

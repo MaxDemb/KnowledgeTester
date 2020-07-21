@@ -1,14 +1,14 @@
 
 <h1>Hello, {{teacher.name}}</h1>
 
-<div class="Info">
+<!-- <div class="Info">
     <br>
     <div>Age: {{teacher.age}}</div>
     <div>Registration date: {{teacher.registrationDate}}</div>
     <br>
-</div>
+</div> -->
 
-
+<br>
 <div>
     <a [routerLink]="['/newtest']">
         <button class="btn btn-success">
@@ -31,14 +31,14 @@
 
 <div class="divider"></div>
 
-<div class="studentsByTeacher" [hidden] = "!isStudents">
+<!-- <div class="studentsByTeacher" [hidden] = "!isStudents">
     <h3>Students:</h3>
     <br>
     <app-students-by-teacher></app-students-by-teacher>
-</div>
+</div> -->
 
 
-<div class="studentsByTeacher" [hidden] = "!isTests">
+<div class="studentsByTeacher" *ngIf = "isTests">
     <h3>Tests:</h3>
     <br>
     <app-tests-by-teacher *ngFor="let test of tests" 

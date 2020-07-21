@@ -23,5 +23,22 @@ namespace BLL.Infrastructure.Services
             var questions = test.Questions;
             return Mapper.Map<IEnumerable<Question>, ICollection<QuestionDTO>>(questions);
         }
+
+        public async Task<QuestionDTO> AddQuestionAsync(QuestionDTO question)
+        {
+            var questionDTO = Mapper.Map<QuestionDTO, Question>(question);
+            await UnitOfWork.Question.CreateAsync(questionDTO);
+            var allQuestions = await UnitOfWork.Question.GetAllAsync();
+            var newQuestion = allQuestions.Where(x => x.Name == question.Name).FirstOrDefault();
+            var newQuestionMapped = Mapper.Map<Question, QuestionDTO>(newQuestion);
+            return newQuestionMapped;   
+        }
+
+        public async Task<IEnumerable<QuestionDTO>> GetQuestionsByTestId(int id)
+        {
+            var allQuestions = await UnitOfWork.Question.GetAllAsync();
+            var result = allQuestions.Where(x => x.TestId == id);
+            return Mapper.Map<IEnumerable<Question>, IEnumerable<QuestionDTO>>(result);
+        }
     }
 }

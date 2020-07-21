@@ -22,8 +22,15 @@ export class TestService {
   }
 
   postNewTest(model: TestModel){
-    console.log("ima posting man");
-    console.log(this.baseUrl + 'api/test/new');
-    return this.http.post(this.baseUrl + 'api/test/new', model);//.pipe(catchError(this.handleError('addHero', hero));
+    return this.http.post<TestNode>(this.baseUrl + 'api/test/new', model);//.pipe(catchError(this.handleError('addHero', hero));
   }
+
+  getAllTestsObservable(){
+    return this.http.get<TestNode[]>(this.baseUrl + 'api/test/all');
+  }
+
+  // getNewTest(name: String){
+  //    this.http.get(this.baseUrl + 'api/test/getByModel', name);
+  // }
+
 }

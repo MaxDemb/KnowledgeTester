@@ -12,5 +12,6 @@ namespace BLL.Interfaces
         Task<IEnumerable<TestDTO>> GetTestsByStudentIdAsync(int id);
         Task<TestDTO> GetTestByIdAsync(int id);
         Task<TestDTO> CreateTest(TestDTO testDTO);
+        Task<IEnumerable<TestDTO>> GetAllTestsAsync();
     }
 }

@@ -85,6 +85,8 @@ namespace Core
                 mc.AddProfile(new AutomapperStudentProfile());
                 mc.AddProfile(new AutomapperTestProfile());
                 mc.AddProfile(new AutomapperAnswerVariantProfile());
+                mc.AddProfile(new AutomapperQuestionProfile());
+                mc.AddProfile(new AutomapperResultProfile());
 
             });
 

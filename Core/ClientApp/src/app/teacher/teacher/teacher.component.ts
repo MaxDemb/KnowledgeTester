@@ -5,6 +5,7 @@ import { filter } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { TestNode } from '../../test/TestNode';
 import { NumberValueAccessor } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-teacher',
@@ -23,17 +24,16 @@ export class TeacherComponent implements OnInit {
 
   id:number;
   
-  constructor(private teacherService: TeacherService) { }
+  constructor(private teacherService: TeacherService,  private router: Router) { }
 
-  ngOnInit() {
+  ngOnInit() {  
     this.id = Number(localStorage.getItem('id'));
-    console.log(this.id);
     this.teacher$ = this.teacherService.getTeacherObservable(this.id);
     this.teacher$.subscribe(x => {this.teacher = x;});
     
     this.tests$ = this.teacherService.getTestsByTeacherIdObservable(this.id);
-    this.tests$.subscribe(x => {this.tests = x;});
-  
+    this.tests$.subscribe(x => {this.tests = x; console.log(x);});
+    
   }
 
   showStudents()

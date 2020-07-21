@@ -27,6 +27,7 @@ namespace Core.Controllers
         //api/test/new
         public async Task<TestDTO> PostTest(TestDTO model)
         {
+
             return await _testService.CreateTest(model);
 
         }
@@ -61,5 +62,22 @@ namespace Core.Controllers
 
             return Ok(res);
         }
+
+
+        [HttpGet("{id}")]
+        [Route("~/api/Test/all")]
+        public async Task<ActionResult<QuestionDTO>> GetAllTests(int id)
+        {
+            var res = await this._testService.GetAllTestsAsync();
+
+            if (res == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(res);
+        }
+
+
     }
 }

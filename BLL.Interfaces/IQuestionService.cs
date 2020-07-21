@@ -9,6 +9,9 @@ namespace BLL.Interfaces
     public interface IQuestionService
     {
         Task<ICollection<QuestionDTO>> GetQuestionsByTest(int id);
+        Task<QuestionDTO> AddQuestionAsync(QuestionDTO question);
+
+        Task<IEnumerable<QuestionDTO>> GetQuestionsByTestId(int id);
     }
 
 }

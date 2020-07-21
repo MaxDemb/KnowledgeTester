@@ -9,7 +9,7 @@ namespace BLL.Interfaces
     public interface IStudentService
     {
         //Task<IEnumerable<StudentDTO>> GetStudentsByTeacherAsync(int id);
-        //Task<StudentDTO> GetStudentByIdAsync(int id);
+        Task<StudentDTO> GetStudentByIdAsync(int id);
         Task AddStudent(StudentDTO student);
 
         Task<int> GetStudentdByUserIdAsync(string userId);

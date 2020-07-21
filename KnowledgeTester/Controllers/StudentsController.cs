@@ -34,19 +34,7 @@ namespace KnowledgeTester.Controllers
 
 
 
-        // GET: api/Student/5
-        //[HttpGet("{id}")]
-        //[Route("~/api/Students/{id}/Student")]
-        //public async Task<ActionResult<StudentDTO>> GetStudentByIdAsync(int id)
-        //{
-        //    var res = await this._studentService.GetStudentByIdAsync(id);
-        //    if(res == null)
-        //    {
-        //        return NotFound();
-        //    }
-        //    return Ok(res);
-
-        //}
+       
 
         //[HttpGet("{id}")]
         //[Route("~/api/Students/{id}/Teacher")]

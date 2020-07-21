@@ -8,5 +8,7 @@ namespace DAL.Domain.Entities
     public class AnswerVariant:BaseEntity
     {
         public bool Right { get; set; }
+        public int QuestionId { get; set; }
+        public Question Question { get; set; }
     }
 }
