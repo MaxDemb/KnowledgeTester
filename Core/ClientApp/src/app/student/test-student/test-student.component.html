@@ -8,8 +8,12 @@
                 <p><b>Deadline:</b> {{deadline}}</p>
             </div>    
         </div>
-        <div class="end">
-            <button type="button" (click)="passTest()" class="btn btn-success">Pass test</button>
+        <div *ngIf="resultCalculated" class="end">
+            <button type="button" *ngIf="!triedToPass" (click)="passTest()" class="btn btn-success">Pass test</button>
+            <div *ngIf="triedToPass" class="result">
+                <p><b>Your result:</b></p>
+                <div >{{this.resultFromBack.rightAnswers}} right answers</div>
+            </div>
         </div>
     </div>
 </div>

@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using BLL.DTO;
 using BLL.Interfaces;
+using Core.Models;
 using DAL.Domain.Entities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -17,10 +19,12 @@ namespace Core.Controllers
     {
 
         private readonly IQuestionService _questionService;
+        private readonly IMapper _mapper;
 
-        public QuestionController(IQuestionService questionService)
+        public QuestionController(IQuestionService questionService, IMapper mapper)
         {
             this._questionService = questionService;
+            this._mapper = mapper;
         }
 
         [HttpGet]
@@ -28,11 +32,12 @@ namespace Core.Controllers
         public async Task<ActionResult<IEnumerable<QuestionDTO>>> getQuestionsByTestId(int id)
         {
             var res = await _questionService.GetQuestionsByTestId(id);
-            if(res != null)
+            if(res == null)
             {
-                return Ok(res);
+                return BadRequest(res);
             }
-            return BadRequest(res);
+            var resSecure = _mapper.Map<IEnumerable<QuestionDTO>, IEnumerable<QuestionSecureModel>>(res);
+            return Ok(resSecure);
         }
 
 

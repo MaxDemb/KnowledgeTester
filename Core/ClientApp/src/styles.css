@@ -7,7 +7,14 @@ a {
 code {
   color: #e01a76;
 }
+/* label{
+  margin-left: 10px;
+} */
 
+input[type="radio"]{
+  height:20px;
+  width: 40px;
+}
 
 .btn-primary {
   color: #fff;
@@ -16,6 +23,7 @@ code {
 }
 
 .container-border{   
+  background-color: rgb(248, 249, 250);
   margin: 40px 0 30px 0;
   padding: 30px 30px 20px 30px;
   border:2px solid black;
@@ -23,6 +31,7 @@ code {
 }
 
 .light-border{
+  /* background-color: rgb(206 206 206); */
   border: 1px solid gray;
 }
 

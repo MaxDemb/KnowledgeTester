@@ -10,5 +10,6 @@ namespace BLL.Interfaces
     {
         Task<AnswerVariantDTO> CreateAnswerVariant(AnswerVariantDTO answerVariantDTO);
         Task<IEnumerable<AnswerVariantDTO>> getAnswerVariantsByQuestionIdAsync(int id);
+        Task<AnswerVariantDTO> CheckAnswerVariant(AnswerVariantDTO answerVariant);
     }
 }

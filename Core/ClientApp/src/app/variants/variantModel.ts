@@ -1,5 +1,5 @@
 export interface VariantModel{
-    Name:string,
-    Right:boolean,
-    QuestionId:number
+    name:string,
+    right:boolean,
+    questionId:number
 }

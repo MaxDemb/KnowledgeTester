@@ -11,10 +11,11 @@ namespace DAL.Domain.Entities
         //public int TeacherId { get; set; }
         //public Teacher Teacher { get; set; }
 
-        public int Mark { get; set; }
-        public int RightAnswers { get; set; }
-        public bool Passed { get; set; }
+        //public int Mark { get; set; }
+        // public bool Passed { get; set; }
 
+
+        public int RightAnswers { get; set; }
 
 
         public int TestId { get; set; }

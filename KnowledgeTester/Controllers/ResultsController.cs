@@ -19,14 +19,14 @@ namespace KnowledgeTester.Controllers
             this._resultService = resultService;
         }
 
-        [HttpGet("{id}")]
-        [Route("~/api/Students/{studentId}/Results/{testId}/")]
-        public async Task<ActionResult<bool>> GetPassedBoolByStudentAsync(int studentId, int testId)
-        {
-            bool res = await this._resultService.GetPassedBoolByStudentAsync(studentId, testId);
+        //[HttpGet("{id}")]
+        //[Route("~/api/Students/{studentId}/Results/{testId}/")]
+        //public async Task<ActionResult<bool>> GetPassedBoolByStudentAsync(int studentId, int testId)
+        //{
+        //    bool res = await this._resultService.GetPassedBoolByStudentAsync(studentId, testId);
 
 
-            return Ok(res);
-        }
+        //    return Ok(res);
+        //}
     }
 }

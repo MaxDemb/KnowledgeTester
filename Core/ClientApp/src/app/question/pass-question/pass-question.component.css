@@ -1,0 +1,12 @@
+.answered{
+    height:100px;
+    text-align: center;
+}
+
+.right{
+    background-color: rgb(40, 167, 69, 0.4);
+}
+
+.wrong{
+    background-color: #dd182bc7;
+}

@@ -1,41 +1,47 @@
 
-<form class="container-border" #myForm="ngForm" novalidate>
+<form *ngIf="!answered" class="container-border" #myForm="ngForm" novalidate>
     <h3>{{name}}</h3>
-    <div class="container-border light-border">
+        <div  class="container-border light-border">
             <p>Choose right answer:</p>
-            <div>
-                <div>
-                    <input id="1" type="radio"  value="1" name="gender" [(ngModel)]="radio" required>
-                    <label for="1">1</label>
+               <div>
+                   <div>
+                    <input id="1" type="radio" value="1" name="gender" [(ngModel)]="answerNum" required>
+                        <label for="1">{{variants[0].name}}</label>
+                    </div>
+                    <div>
+                    <input id="2" type="radio" value="2" name="gender" [(ngModel)]="answerNum" required>
+                        <label for="2">{{variants[1].name}}</label>
+                    </div>
+                    
+                    <div>
+                        <input id="3" type="radio"  value="3" name="gender" [(ngModel)]="answerNum" required>
+                        <label for="3">{{variants[2].name}}</label>
+                    </div>
+                    
+                    <div>
+                    <input id="4" type="radio" value="4" name="gender" [(ngModel)]="answerNum" required>
+                        <label for="4">{{variants[3].name}}</label>
+                    </div>
                 </div>
-                 
-                <div>
-                <input id="2" type="radio" value="2" name="gender" [(ngModel)]="radio" required>
-                    <label for="2">2</label>
-                </div>
-                
-                <div>
-                    <input id="3" type="radio"  value="3" name="gender" [(ngModel)]="radio" required>
-                    <label for="3">3</label>
-                </div>
-                 
-                <div>
-                <input id="4" type="radio" value="4" name="gender" [(ngModel)]="radio" required>
-                    <label for="4">4</label>
-                </div>
-            </div>
-    </div>
+        </div>
 
-    
-    <div class="container-flex start">
-        <div class="form-group">
-            <button [disabled]="myForm.invalid"
-                    class="btn btn-outline-success" (click)="submit()">Answer</button>
-        </div>   
-        <div style="margin-left:20px;">
-            <button class="btn btn-outline-warning"  (click)="cancel()">Stop test</button>
+        
+        <div class="container-flex start">
+            <div class="form-group">
+                <button [disabled]="myForm.invalid"
+                        class="btn btn-outline-success" (click)="submit()">Answer</button>
+            </div>   
 
-        </div> 
+        </div>
 
-    </div>
 </form>
+
+<div class="container-border answered right" *ngIf="answered && rightAnswer">
+    <h3>{{name}}</h3>
+
+</div>
+
+<div class="container-border answered wrong" *ngIf="answered && !rightAnswer">
+    <h3>{{name}}</h3>
+
+</div>

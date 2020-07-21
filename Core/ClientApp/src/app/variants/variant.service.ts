@@ -1,6 +1,8 @@
 import { Injectable, Inject } from '@angular/core';
 import { VariantModel } from './variantModel';
 import { HttpClient } from '@angular/common/http';
+import { questionSecure } from '../question/questionSecure';
+import { variantSecure } from './variantSecure';
 
 @Injectable({
   providedIn: 'root'
@@ -13,8 +15,8 @@ export class VariantService {
     return this.http.post(this.baseUrl + 'api/answerVariant/new', variantModel);
   }
 
-  getVariantsByTestIdObservable(id : number){
-    return this.http.get(this.baseUrl + 'api/answerVariant/getByTestId' + id);
+  getVariantsByQuestionIdObservable(id : number){
+    return this.http.get<variantSecure[]>(this.baseUrl + 'api/answerVariant/getByQuestionId/' + id);
   }
 
 }

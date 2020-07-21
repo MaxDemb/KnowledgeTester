@@ -6,6 +6,9 @@ import { Teacher } from '../../teacher/teacher/teacher';
 import { TestNode } from '../../test/TestNode';
 import { TeacherService } from '../../teacher/teacher.service';
 import { TestService } from '../../test/test.service';
+import { resultModel } from '../../results/resultModel';
+import { ResultService } from '../../results/result.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-student',
@@ -26,7 +29,8 @@ export class StudentComponent implements OnInit {
 
   isTests:boolean = false;
 
-  constructor(private studentService: StudentServiceService, private testService: TestService) { }
+  constructor(private studentService: StudentServiceService, private testService: TestService,
+     private resultService: ResultService, private router:Router) { }
 
   ngOnInit() {
 
@@ -56,5 +60,7 @@ export class StudentComponent implements OnInit {
   testExists(){
     return this.tests.length;
   }
+
+ 
 
 }

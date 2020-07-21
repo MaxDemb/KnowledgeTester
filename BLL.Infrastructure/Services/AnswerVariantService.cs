@@ -35,5 +35,11 @@ namespace BLL.Infrastructure.Services
             var res = allAnswerVariants.Where(x => x.QuestionId == id);
             return Mapper.Map<IEnumerable<AnswerVariant>,IEnumerable <AnswerVariantDTO>>(res);
         }
+
+        public async Task<AnswerVariantDTO> CheckAnswerVariant(AnswerVariantDTO answerVariant)
+        {
+            var answerFromBack = await UnitOfWork.AnswerVariant.GetByIdAsync(answerVariant.Id);
+            return Mapper.Map<AnswerVariant, AnswerVariantDTO>(answerFromBack);
+        }
     }
 }

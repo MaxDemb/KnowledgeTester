@@ -71,6 +71,7 @@ namespace DAL.EntityFramework.Repositories.Generic
 
         public void Update(T entity)
         {
+
             if (entity == null)
             {
                 throw new ArgumentEntityNullInstanceException("Error in repository with entity while executing update", "entity");

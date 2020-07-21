@@ -7,7 +7,7 @@
     </div>
 </div>
 
-<div [hidden]="!isTests" class="container-border tests">
+<div *ngIf="isTests" class="container-border tests">
     <h3>Tests</h3>
     <br>
     <app-test-student *ngFor="let test of tests" 

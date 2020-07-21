@@ -93,35 +93,35 @@ export class CreateQuestionComponent implements OnInit {
   createVariantObjects(newQuestionId:number){
 
     this.variant1model = {
-      Name : this.variant1,
-      Right : false,
-      QuestionId : newQuestionId
+      name : this.variant1,
+      right : false,
+      questionId : newQuestionId
     };
     this.variant2model = {
-      Name : this.variant2,
-      Right : false,
-      QuestionId : newQuestionId
+      name : this.variant2,
+      right : false,
+      questionId : newQuestionId
     }
     this.variant3model = {
-      Name : this.variant3,
-      Right : false,
-      QuestionId : newQuestionId
+      name : this.variant3,
+      right : false,
+      questionId : newQuestionId
     }
     this.variant4model = {
-      Name : this.variant4,
-      Right : false,
-      QuestionId : newQuestionId
+      name : this.variant4,
+      right : false,
+      questionId : newQuestionId
     }
     
 
     if(this.radio == 1){
-      this.variant1model.Right = true;
+      this.variant1model.right = true;
     }else if(this.radio == 2){
-      this.variant2model.Right = true;
+      this.variant2model.right = true;
     }else if(this.radio == 3){
-      this.variant3model.Right = true;
+      this.variant3model.right = true;
     }else if(this.radio == 4){
-      this.variant4model.Right = true;
+      this.variant4model.right = true;
     }
   }
 

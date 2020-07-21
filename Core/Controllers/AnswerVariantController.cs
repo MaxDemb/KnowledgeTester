@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using BLL.DTO;
 using BLL.Interfaces;
+using Core.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -15,9 +17,11 @@ namespace Core.Controllers
     {
 
         private readonly IAnswerVariantService _answerVariantService;
-        public AnswerVariantController(IAnswerVariantService answerVariantService)
+        private readonly IMapper _mapper;
+        public AnswerVariantController(IAnswerVariantService answerVariantService, IMapper mapper)
         {
             this._answerVariantService = answerVariantService;
+            this._mapper = mapper;
         }
 
 
@@ -30,15 +34,24 @@ namespace Core.Controllers
         }
 
         [HttpGet]
-        [Route("~/api/answerVariant/getByTestId/{id}")]
-        public async Task<ActionResult<IEnumerable<AnswerVariantDTO>>> getByQuestionId(int id)
+        [Route("~/api/answerVariant/getByQuestionId/{id}")]
+        public async Task<ActionResult<IEnumerable<AnswerVariantSecureModel>>> getByQuestionId(int id)
         {
-            var res = await _answerVariantService.getAnswerVariantsByQuestionIdAsync(id);    
+            var res = await _answerVariantService.getAnswerVariantsByQuestionIdAsync(id);
             if(res == null)
             {
                 return BadRequest(res);
             }
-            return Ok(res);
+            var resSecure = _mapper.Map<IEnumerable<AnswerVariantDTO>, IEnumerable<AnswerVariantSecureModel>>(res);
+            return Ok(resSecure);
+        }
+
+        [HttpPost]
+        [Route("~/api/answerVariant/Check/")]
+        public async Task<ActionResult<AnswerVariantDTO>> CheckAnswerVariant(AnswerVariantSecureModel model)
+        {
+            var DTO = _mapper.Map<AnswerVariantSecureModel, AnswerVariantDTO>(model);
+            return await _answerVariantService.CheckAnswerVariant(DTO);
         }
     }
 }

@@ -24,6 +24,7 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.EntityFrameworkCore.Design;
 using System;
 using System.Text;
+using Core.AutomapperProfiles;
 
 namespace Core
 {
@@ -87,6 +88,8 @@ namespace Core
                 mc.AddProfile(new AutomapperAnswerVariantProfile());
                 mc.AddProfile(new AutomapperQuestionProfile());
                 mc.AddProfile(new AutomapperResultProfile());
+                mc.AddProfile(new AutomapperQuestionSecureProfile());
+                mc.AddProfile(new AutomapperAnswerVariantSecureProfile());
 
             });
 

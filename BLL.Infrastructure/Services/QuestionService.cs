@@ -40,5 +40,6 @@ namespace BLL.Infrastructure.Services
             var result = allQuestions.Where(x => x.TestId == id);
             return Mapper.Map<IEnumerable<Question>, IEnumerable<QuestionDTO>>(result);
         }
+
     }
 }
