@@ -6,6 +6,7 @@ import { resultModel } from '../resultModel';
 import { Observable } from 'rxjs';
 import { questionModel } from '../../question/questionModel';
 import { QuestionService } from '../../question/question.service';
+import { questionSecure } from 'src/app/question/questionSecure';
 
 @Component({
   selector: 'app-student-by-result',
